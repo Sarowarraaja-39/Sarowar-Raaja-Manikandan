@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360" role="img" aria-labelledby="title desc">
+<title id="title">Segmented LAN topology</title>
+<desc id="desc">A VPN gateway connects to a managed LAN switch. The switch serves an office VLAN with a desktop and wireless access point, and a surveillance VLAN with an IP camera and network video recorder.</desc>
+<defs>
+ <radialGradient id="bg"><stop stop-color="#171c43"/><stop offset="1" stop-color="#0a0c1d"/></radialGradient>
+ <linearGradient id="unit" x2="0" y2="1"><stop stop-color="#1b2352"/><stop offset="1" stop-color="#10142e"/></linearGradient>
+ <pattern id="grid" width="24" height="24" patternUnits="userSpaceOnUse"><path d="M24 0H0V24" fill="none" stroke="#5060c5" stroke-width=".45" opacity=".12"/></pattern>
+ <filter id="glow"><feGaussianBlur stdDeviation="3"/></filter>
+</defs>
+<rect width="640" height="360" fill="url(#bg)"/>
+<rect width="640" height="360" fill="url(#grid)"/>
+<g font-family="Arial, Helvetica, sans-serif">
+ <rect x="30" y="188" width="280" height="146" rx="10" fill="#8c96d9" fill-opacity=".035" stroke="#8c96d9" stroke-opacity=".2"/>
+ <rect x="330" y="188" width="280" height="146" rx="10" fill="#7884d2" fill-opacity=".035" stroke="#7884d2" stroke-opacity=".2"/>
+ <text x="170" y="212" text-anchor="middle" fill="#bec4ea" font-size="12" letter-spacing="1.4">VLAN 10 · OFFICE</text>
+ <text x="470" y="212" text-anchor="middle" fill="#a2aae0" font-size="12" letter-spacing="1.4">VLAN 20 · CCTV</text>
+ <g fill="none" stroke-linejoin="round" stroke-width="2">
+  <path d="M320 77V118" stroke="#bbc1e8"/>
+  <path d="M270 160V177H104V248M290 160V183H236V248" stroke="#8c96d9"/>
+  <path d="M350 160V183H404V248M370 160V177H536V248" stroke="#7884d2"/>
+ </g>
+ <g fill="#8c96d9" opacity=".3" filter="url(#glow)"><circle cx="104" cy="248" r="5"/><circle cx="236" cy="248" r="5"/></g>
+ <g fill="#7884d2" opacity=".3" filter="url(#glow)"><circle cx="404" cy="248" r="5"/><circle cx="536" cy="248" r="5"/></g>
+ <rect x="250" y="31" width="140" height="46" rx="8" fill="url(#unit)" stroke="#7783d2"/>
+ <path d="M268 46H282M268 55H282" stroke="#8c96d9" stroke-width="2"/>
+ <circle cx="375" cy="54" r="3" fill="#7884d2"/>
+ <text x="327" y="59" text-anchor="middle" fill="#e1e4f7" font-size="12">VPN gateway</text>
+ <rect x="230" y="118" width="180" height="43" rx="6" fill="url(#unit)" stroke="#9ba3de"/>
+ <g fill="#0a0d1e" stroke="#5160c5" stroke-width=".8"><rect x="244" y="140" width="15" height="12" rx="1"/><rect x="266" y="140" width="15" height="12" rx="1"/><rect x="288" y="140" width="15" height="12" rx="1"/><rect x="310" y="140" width="15" height="12" rx="1"/><rect x="332" y="140" width="15" height="12" rx="1"/><rect x="354" y="140" width="15" height="12" rx="1"/></g>
+ <circle cx="390" cy="146" r="3" fill="#7884d2"/>
+ <text x="320" y="130" text-anchor="middle" fill="#e1e4f7" font-size="11" letter-spacing=".3">MANAGED LAN SWITCH</text>
+ <g fill="url(#unit)" stroke="#8c96d9" stroke-width="1.6">
+  <rect x="73" y="248" width="62" height="38" rx="3"/>
+  <path d="M104 286V294M91 294H117" fill="none"/>
+  <rect x="208" y="263" width="56" height="20" rx="10"/>
+  <path d="M220 253Q236 239 252 253M226 258Q236 250 246 258" fill="none"/>
+ </g>
+ <g fill="url(#unit)" stroke="#7884d2" stroke-width="1.6">
+  <path d="M374 254H420V274H374Z"/>
+  <path d="M420 257L433 251V275L420 270Z"/>
+  <path d="M397 274V289H413" fill="none"/>
+  <rect x="506" y="248" width="60" height="42" rx="4"/>
+  <path d="M515 260H548M515 270H541" fill="none"/>
+ </g>
+ <circle cx="552" cy="279" r="2.5" fill="#7884d2"/>
+ <circle cx="236" cy="273" r="2" fill="#8c96d9"/>
+ <text x="104" y="316" text-anchor="middle" fill="#d3d8f3" font-size="12">Office PC</text>
+ <text x="236" y="316" text-anchor="middle" fill="#d3d8f3" font-size="12">Wi-Fi AP</text>
+ <text x="404" y="316" text-anchor="middle" fill="#c1c7ea" font-size="12">IP camera</text>
+ <text x="536" y="316" text-anchor="middle" fill="#c1c7ea" font-size="12">NVR</text>
+</g>
+</svg>
