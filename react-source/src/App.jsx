@@ -6,6 +6,7 @@ import NetworkScene from './components/NetworkScene.jsx';
 import ProjectVisual from './components/ProjectVisual.jsx';
 import CareerVisual from './components/CareerVisual.jsx';
 import SlidingFrames from './components/SlidingFrames.jsx';
+import HeroBackground from './components/HeroBackground.jsx';
 
 const portrait='./assets/sarowar-editorial.png';
 const original='./assets/sarowar-original.jpg';
@@ -43,7 +44,7 @@ function Header({motion,setMotion}){
 }
 function Hero({motion}){
  const [isOriginal,setOriginal]=useState(false);const clock=useClock();
- return <section className="hero poster-hero" id="home"><div className="hero-ambient"/><div className="hero-grid container">
+ return <section className="hero poster-hero" id="home"><HeroBackground motion={motion}/><div className="hero-ambient"/><div className="hero-grid container">
   <div className="hero-copy"><p className="overline">NETWORK & SECURITY PROFESSIONAL</p><h1>ANALYST</h1><p className="hero-tagline">Analyse the traffic<br/>Detect the threat<br/>Built a safer tomorrow</p><div className="hero-buttons"><a className="button button-amber" href="#work">View the work <span className="button-icon"><Arrow/></span></a></div></div>
   <div className="portrait-stage"><NetworkScene motion={motion}/><div className="portrait-frame"><img className={isOriginal?'portrait-img original-photo':'portrait-img'} src={isOriginal?original:portrait} alt="Sarowar Raaja Manikandan in a navy suit" fetchPriority="high" width="1024" height="1536"/></div><button className="portrait-switch" onClick={()=>setOriginal(!isOriginal)} aria-pressed={isOriginal}>{isOriginal?'View editorial portrait':'View original photo'} <Arrow/></button></div>
   <div className="hero-side"><div className="hero-side-intro"><p className="hero-availability"><span className="status-dot"/>OPEN TO UK OPPORTUNITIES</p><h2><span>Cybersecurity analysis.</span><span>Built on networks.</span></h2><div className="hero-person"><p>I’m <strong>{profile.name}</strong>, {profile.intro}</p></div><p className="hero-summary">{profile.introDetail}</p></div><div className="hero-side-meta"><div className="hero-location"><span className="location-pin" aria-hidden="true">⌖</span><span>{profile.location}</span><span className="meta-divider"/><span>{clock}</span></div><div className="portrait-caption"><Monogram/><div><strong>SAROWAR RAAJA</strong><span>Engineer Behind the work</span></div><span className="caption-cross" aria-hidden="true">↗</span></div></div></div>

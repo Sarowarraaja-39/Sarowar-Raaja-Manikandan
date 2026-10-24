@@ -85,3 +85,8 @@ React, Vite and Three.js are distributed under their respective open-source lice
 ## Career visuals
 
 The LAN chapter uses an editable SVG topology with a managed switch, VPN gateway and separate office/CCTV VLANs. The other chapters use AI-generated concept illustrations: a banking backend, telecom operations centre, LEO satellite communications, national telecom backbone and cyber analyst desk. These are illustrative scenes rather than photographs or exact client network architectures. Assets are under `public/assets/career/`.
+
+
+### London skyline background
+
+The opening section includes the selected Pinterest skyline video as a locally bundled, silent loop. Use the existing header motion button to pause/resume it. Visitors who prefer reduced motion see a still frame; the video also pauses outside the opening section or when the browser tab is hidden. Video source and processing details are in `ASSET_NOTES.md`.

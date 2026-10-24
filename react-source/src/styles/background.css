@@ -1,0 +1,40 @@
+/* User-selected London skyline video, inside the existing indigo hero split. */
+.hero-video-background {
+  position: absolute;
+  inset: 0 auto 0 0;
+  z-index: 0;
+  width: 57%;
+  overflow: hidden;
+  pointer-events: none;
+  background-color: #3949ab;
+  background-size: cover;
+  background-position: center;
+}
+
+.hero-video-background video {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  object-position: center;
+  opacity: 0;
+  filter: saturate(.7);
+  transition: opacity .6s ease;
+}
+
+.hero-video-background[data-ready="true"] video { opacity: 1; }
+
+.hero-video-background::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, #293681e8 0%, #3949abb8 48%, #3949ab70 100%);
+}
+
+@media (max-width: 900px) {
+  .hero-video-background { width: 65%; height: 590px; }
+}
+
+@media (max-width: 600px) {
+  .hero-video-background { height: 540px; }
+}

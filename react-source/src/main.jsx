@@ -5,4 +5,5 @@ import './styles/global.css';
 import './styles/poster.css';
 import './styles/frames.css';
 import './styles/analyst.css';
+import './styles/background.css';
 createRoot(document.getElementById('root')).render(<React.StrictMode><App /></React.StrictMode>);
