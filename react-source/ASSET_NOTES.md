@@ -39,3 +39,23 @@ Media URL supplied in that pin's page: https://v1.pinimg.com/videos/iht/expMp4/5
 Bundled file: `public/assets/background/london-skyline.mp4`. The approximately 13.5-second portrait clip is converted to 540 × 960 H.264, 24 fps, with fast-start metadata and its audio track removed. Its existing London Moments branding and title remain in the source imagery. A first-frame JPEG is bundled as `london-skyline-poster.jpg`. The video is hosted with the portfolio rather than hotlinked or embedded in a Pinterest frame. Source creators retain their rights; inclusion does not assert ownership or a new licence.
 
 The video sits behind the indigo portion of the opening section. An indigo overlay preserves text contrast. The existing header motion control pauses/resumes it; a reduced-motion visit shows the poster without loading the MP4. Playback also pauses when the opening section leaves the viewport or the browser tab is hidden. If playback fails, the poster remains visible.
+
+
+Evidence-map redesign — October 2026
+------------------------------------
+The portfolio uses native React, CSS and SVG for the identity rail, six-case evidence map, career timeline and moving skills/education frames. The map connects actual portfolio projects; it is not a live security dashboard and displays no invented incidents or operational telemetry. Existing experience and project scope remain unchanged. Campus photographs now form the education frame backgrounds; their original credits and licences above still apply.
+
+Design references supplied by the user:
+https://uk.pinterest.com/pin/252694229082746363/
+https://uk.pinterest.com/pin/1103030133798274611/
+https://uk.pinterest.com/pin/654640495883806452/
+https://uk.pinterest.com/pin/418905202857789895/
+https://uk.pinterest.com/pin/1017672847072144629/
+https://uk.pinterest.com/pin/301600506308865363/
+https://uk.pinterest.com/pin/966162926353358977/
+https://uk.pinterest.com/pin/519321400807789390/
+https://uk.pinterest.com/pin/1125829606880621681/
+https://uk.pinterest.com/pin/1003458360704578799/
+These supplied composition and interaction ideas; their portfolio branding and third-party faces are not embedded.
+
+Personal mountain poster: user-selected https://uk.pinterest.com/pin/1131177631458241729/ . The pin supplied https://i.pinimg.com/originals/9d/15/fa/9d15fa8d52f63f53e26e678cf2f4ea4c.png . A WebP copy is bundled at public/assets/personal/himalayas-reminder.webp (853 × 1706). Its original text and composition remain intact. It is presented as Sarowar's personal inspiration; no photographic location verification, climbing experience, ownership or new licence is asserted.
