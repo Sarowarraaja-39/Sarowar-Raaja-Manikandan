@@ -30,3 +30,12 @@ The MCA and BEng frames link to later related portfolio work under that explicit
 Analyst positioning update — native illustrations
 ------------------------------------------------
 `public/assets/career/bp-operations.svg` is an original editable SVG showing a point-of-sale terminal, equipment status records and an operational log. It represents the supplied Customer Assistant duties, without company branding or real transaction/equipment data. The Change to Evidence project uses editable HTML/CSS document sheets and an SVG project icon. These represent AT/MOP work rather than reproducing an employer document or product screenshot. No original employer document was uploaded or embedded as part of this website update.
+
+
+Hero background — London skyline video
+--------------------------------------
+User-selected source: https://uk.pinterest.com/pin/986710599615349371/
+Media URL supplied in that pin's page: https://v1.pinimg.com/videos/iht/expMp4/5c/13/19/5c13194685f069725c15e4cf03b9490b_720w.mp4
+Bundled file: `public/assets/background/london-skyline.mp4`. The approximately 13.5-second portrait clip is converted to 540 × 960 H.264, 24 fps, with fast-start metadata and its audio track removed. Its existing London Moments branding and title remain in the source imagery. A first-frame JPEG is bundled as `london-skyline-poster.jpg`. The video is hosted with the portfolio rather than hotlinked or embedded in a Pinterest frame. Source creators retain their rights; inclusion does not assert ownership or a new licence.
+
+The video sits behind the indigo portion of the opening section. An indigo overlay preserves text contrast. The existing header motion control pauses/resumes it; a reduced-motion visit shows the poster without loading the MP4. Playback also pauses when the opening section leaves the viewport or the browser tab is hidden. If playback fails, the poster remains visible.
