@@ -50,7 +50,10 @@ test('Seven career chapters preserve source facts, responsibilities and original
     assert.equal(panel.querySelector('h3').textContent,item.role);
     for(const text of [item.company,item.period,item.location,item.lead,...item.paragraphs,...item.bullets,...item.tools,...item.facts.flatMap(f=>[f.value,f.label])])assert(panel.textContent.includes(text),item.id+': missing '+text);
     assert(panel.querySelector('.role-scenery img').getAttribute('alt').length>30);
-    assert.equal(panel.querySelector('details>summary').textContent,'Responsibilities & approach+');
+    const description=panel.querySelector('.role-stage .role-description');
+    assert(description,item.id+': the full role explanation must be on the main slide');
+    for(const text of item.paragraphs)assert(description.textContent.includes(text));
+    assert(!description.closest('details,[hidden]'));
   }
   const tabs=[...container.querySelectorAll('[role="tab"]')].map(tab=>tab.textContent);
   assert(tabs[2].includes('L1')&&tabs[3].includes('Satellite')&&tabs[4].includes('L2'));
@@ -69,18 +72,16 @@ test('Career navigation wraps, announces selection, supports Home/End/arrows and
   assert.equal(container.querySelector('[aria-roledescription="carousel"]').dataset.playing,'false');
 });
 
-test('Career native disclosure opens responsibilities and resets when leaving the chapter', async () => {
+test('Full role explanations and responsibilities are available without opening a disclosure', async () => {
   await mount(<ExperienceJourney motion={false}/>);
-  const panel=active(),details=panel.querySelector('details');
-  assert.equal(details.open,false);
-  await click(details.querySelector('summary'));
-  assert.equal(details.open,true);
-  assert.equal(panel.querySelector('h3').textContent,career[4].role);
-  await click(details.querySelector('summary')); assert.equal(details.open,false);
-  await click(details.querySelector('summary')); assert.equal(details.open,true);
-  await click(button('Next career slide'));
-  assert.equal(details.open,false,'A hidden chapter must not retain expanded content and inflate later slides.');
-  await click(button('Previous career slide')); assert.equal(active().querySelector('details').open,false);
+  for(let i=0;i<career.length;i++){
+    await click(document.getElementById('career-tab-'+i));
+    const panel=active();
+    assert.equal(panel.querySelectorAll('details').length,0,'The role explanation must not require expansion.');
+    const responsibilities=panel.querySelector('.role-responsibilities');
+    assert(responsibilities,'Show responsibilities as part of the slide.');
+    for(const text of career[i].bullets)assert(responsibilities.textContent.includes(text));
+  }
 });
 
 test('Automatic career slides stop for hover, focus, hidden tabs, offscreen, modal and site motion off', async t => {
@@ -88,7 +89,8 @@ test('Automatic career slides stop for hover, focus, hidden tabs, offscreen, mod
   await mount(<ExperienceJourney motion={true} blocked={false}/>);
   const deck=container.querySelector('[aria-roledescription="carousel"]');
   assert.equal(deck.dataset.playing,'true');
-  await act(async () => t.mock.timers.tick(12000)); assertActive(5);
+  await act(async () => t.mock.timers.tick(29999)); assertActive(4);
+  await act(async () => t.mock.timers.tick(1)); assertActive(5);
   await act(async () => deck.dispatchEvent(new MouseEvent('mouseover',{bubbles:true,relatedTarget:document.body})));
   assert.equal(deck.dataset.playing,'false');
   await act(async () => t.mock.timers.tick(24000)); assertActive(5);
@@ -103,7 +105,7 @@ test('Automatic career slides stop for hover, focus, hidden tabs, offscreen, mod
   await mount(<ExperienceJourney motion={false} blocked={false}/>); assert.equal(deck.dataset.playing,'false');
   assert(button('Enable site motion to play career slideshow').disabled);
   await mount(<ExperienceJourney motion={true} blocked={false}/>);
-  await act(async () => active().querySelector('summary').focus()); assert.equal(deck.dataset.playing,'false');
+  await act(async () => active().focus()); assert.equal(deck.dataset.playing,'false');
   await click(button('Play career slideshow')); assert.equal(deck.dataset.playing,'true');
 });
 
@@ -151,4 +153,23 @@ test('Shared carousel changes preserve three education frames, credits and proje
       await click(active().querySelectorAll('.education-project')[j]); assert.equal(opened.at(-1),id);
     }
   }
+});
+
+
+test('Bachelor education shows the scrap-built Bell model and college first-place award, with no SecureFI association', async () => {
+  await mount(<EducationSection motion={false} onOpen={()=>{}}/>);
+  await click(document.getElementById('education-tab-2'));
+  const panel=active();
+  assert(!panel.textContent.includes('SecureFI'));
+  assert.equal(panel.querySelectorAll('.education-project').length,0);
+  assert.match(panel.textContent,/Bell helicopter model/);
+  assert.match(panel.textContent,/1st place/);
+  assert.match(panel.textContent,/college symposium/);
+  assert.match(panel.textContent,/scrap metals/);
+  assert.match(panel.textContent,/recovered motors/);
+  assert.match(panel.textContent,/no new parts or components/);
+  const photo=panel.querySelector('.student-project-photo');
+  assert(photo,'Show the supplied model photograph.');
+  assert.equal(photo.getAttribute('src'),'./assets/education/bell-helicopter-scrap-model.jpg');
+  assert.equal(panel.querySelector('.student-project-photo-link').getAttribute('href'),photo.getAttribute('src'));
 });

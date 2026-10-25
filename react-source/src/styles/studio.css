@@ -254,6 +254,13 @@ button:focus-visible,a:focus-visible,[tabindex="0"]:focus-visible{outline:2px so
 .education-project small{display:block;font:9px/1.7 var(--mono);color:var(--muted);margin-top:4px}
 .education-project .arrow{font-size:20px}
 .education-project:hover{color:var(--accent)}
+.student-project{margin-top:20px;border-top:1px solid var(--boundary);padding-top:20px}
+.student-project-photo-link{display:block;border:1px solid var(--boundary);border-radius:8px;overflow:hidden;background:var(--bg)}
+.student-project-photo{width:100%;height:auto;aspect-ratio:4/3;object-fit:contain}
+.student-project figcaption{display:flex;gap:16px;align-items:start;justify-content:space-between;flex-wrap:wrap;margin-top:16px}
+.student-project figcaption strong{display:block;font:500 15px/1.6 var(--body)}
+.student-project figcaption>div>span{display:block;font:11px/1.8 var(--mono);color:var(--accent);margin-top:4px}
+.student-project figcaption .text-link{font-size:11px;gap:12px;min-height:44px}
 .campus-credit{display:flex;justify-content:space-between;gap:16px;margin-top:20px;position:relative;color:#d3d8e8;font-size:9px;line-height:1.8}
 .campus-credit>div{display:flex;gap:12px;flex-wrap:wrap}
 .campus-credit a{text-decoration:underline;text-underline-offset:3px}

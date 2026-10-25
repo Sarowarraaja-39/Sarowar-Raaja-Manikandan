@@ -24,7 +24,7 @@ These are real campus photographs, not generated images. Local WebP copies are b
 - `public/assets/education/madurai-campus.webp`: “Madhurai kamaraj university main gate”, LIC Habeeb, 2010, CC BY-SA 3.0. Source: https://commons.wikimedia.org/wiki/File:Madhurai_kamaraj_university_main_gate.JPG ; original: https://upload.wikimedia.org/wikipedia/commons/b/b1/Madhurai_kamaraj_university_main_gate.JPG ; licence: https://creativecommons.org/licenses/by-sa/3.0/ . 980 × 735, converted to WebP.
 - `public/assets/education/anna-campus.webp`: “Ceg red building”, Srinath1905, 9 May 2010, CC BY-SA 3.0 (chosen from the offered licences). Source: https://commons.wikimedia.org/wiki/File:Ceg_red_building.jpg ; original: https://upload.wikimedia.org/wikipedia/commons/c/cc/Ceg_red_building.jpg ; licence: https://creativecommons.org/licenses/by-sa/3.0/ . Resized to 1440 × 1080. This depicts the university's College of Engineering, Guindy campus; no attendance at this specific campus or affiliated college is asserted.
 
-The MCA and BEng frames link to later related portfolio work under that explicit label; those projects are not represented as projects completed during the earlier degrees.
+The MCA frame links to later related portfolio work under that explicit label. The BEng frame features the owner-supplied Bell helicopter model and college symposium first-place award, replacing the former SecureFI association.
 
 
 Analyst positioning update — native illustrations
@@ -59,3 +59,8 @@ https://uk.pinterest.com/pin/1003458360704578799/
 These supplied composition and interaction ideas; their portfolio branding and third-party faces are not embedded.
 
 Personal mountain poster: user-selected https://uk.pinterest.com/pin/1131177631458241729/ . The pin supplied https://i.pinimg.com/originals/9d/15/fa/9d15fa8d52f63f53e26e678cf2f4ea4c.png . A WebP copy is bundled at public/assets/personal/himalayas-reminder.webp (853 × 1706). Its original text and composition remain intact. It is presented as Sarowar's personal inspiration; no photographic location verification, climbing experience, ownership or new licence is asserted.
+
+
+Bachelor project — owner-supplied photograph
+-------------------------------------------
+`public/assets/education/bell-helicopter-scrap-model.jpg` is copied byte-for-byte from the user-supplied `PHOTO-2026-10-25-08-33-27.jpg` (1428 × 1071). It shows Sarowar beside his model. The owner states the Bell helicopter model was built entirely from scrap metals and recovered motors, without new parts or components, and won first place at the college symposium. No claim of flight, airworthiness, manufacturer endorsement or a wider award is made. The source image is unmodified and no new image licence is asserted.

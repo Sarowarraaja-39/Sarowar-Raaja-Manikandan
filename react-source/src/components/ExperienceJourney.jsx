@@ -1,4 +1,3 @@
-import { useEffect, useRef } from 'react';
 import { career } from '../data/portfolio.js';
 import SlidingFrames from './SlidingFrames.jsx';
 import { SectionHeading } from './StudioUI.jsx';
@@ -29,8 +28,6 @@ const chapters = {
 
 function ExperienceSlide({ item, active, index }) {
   const chapter = chapters[item.id];
-  const notes = useRef(null);
-  useEffect(() => { if (!active && notes.current) notes.current.open = false; }, [active]);
   return <article className={'role-slide role-slide--' + item.id} data-active={active}>
     <div className="role-stage">
       <div className="role-scenery">
@@ -45,20 +42,17 @@ function ExperienceSlide({ item, active, index }) {
         <p className="role-employer">{item.company}</p><h3>{item.role}</h3>
         <p className="role-period"><span>{item.period}</span><span>{item.location}</span></p>
       </div>
-      <div className="role-introduction"><p>{item.lead}</p><div className="role-facts">{item.facts.map(f => <div key={f.label}><strong>{f.value}</strong><span>{f.label}</span></div>)}</div></div>
+      <div className="role-introduction"><div className="role-explanation"><p className="role-lead">{item.lead}</p><div className="role-description">{item.paragraphs.map(text => <p key={text}>{text}</p>)}</div></div><div className="role-facts">{item.facts.map(f => <div key={f.label}><strong>{f.value}</strong><span>{f.label}</span></div>)}</div></div>
     </div>
+    <div className="role-responsibilities"><h4 className="eyebrow">Responsibilities<br/>& tools</h4><div><ul className="role-responsibility-list">{item.bullets.map(text => <li key={text}>{text}</li>)}</ul><ul className="tool-list" aria-label={item.role + ' tools'}>{item.tools.map(tool => <li key={tool}>{tool}</li>)}</ul></div></div>
     <div className="role-transfer"><span className="eyebrow">What I bring to an analyst role</span><p>{chapter.relevance}</p><span className="role-transfer-arrow" aria-hidden="true">↗</span></div>
-    <details ref={notes} className="role-notes">
-      <summary><span>Responsibilities & approach</span><span className="role-notes-plus" aria-hidden="true">+</span></summary>
-      <div className="role-notes-body"><div>{item.paragraphs.map(text => <p key={text}>{text}</p>)}</div><div><h4 className="eyebrow">In practice</h4><ul>{item.bullets.map(text => <li key={text}>{text}</li>)}</ul><ul className="tool-list" aria-label={item.role + ' tools'}>{item.tools.map(tool => <li key={tool}>{tool}</li>)}</ul></div></div>
-    </details>
   </article>;
 }
 
 export default function ExperienceJourney({ motion, blocked }) {
   return <section className="section journey-section" id="journey">
     <div className="wrap"><SectionHeading label="Experience / from operations to analysis" title={<>Real infrastructure.<br/><span>A security mindset.</span></>}>Banking, telecoms and the networks in between. Explore the roles behind my approach to investigation, validation and clear evidence.</SectionHeading></div>
-    <div className="experience-shell"><SlidingFrames id="career" label="Professional experience" items={career} getLabel={item => item.role + ' · ' + item.company} initialIndex={4} motion={motion} blocked={blocked} interval={12000} className="experience-carousel" renderTab={(item, i) => <><span className="chapter-preview" aria-hidden="true"><img src={'./assets/career/' + chapters[item.id].file} alt="" width="240" height="135" loading="lazy"/><span>{String(i + 1).padStart(2,'0')}</span></span><span className="chapter-label"><small>{item.year}</small><strong>{chapters[item.id].short}</strong><span>{item.title}</span></span></>}>
+    <div className="experience-shell"><SlidingFrames id="career" label="Professional experience" items={career} getLabel={item => item.role + ' · ' + item.company} initialIndex={4} motion={motion} blocked={blocked} interval={30000} className="experience-carousel" renderTab={(item, i) => <><span className="chapter-preview" aria-hidden="true"><img src={'./assets/career/' + chapters[item.id].file} alt="" width="240" height="135" loading="lazy"/><span>{String(i + 1).padStart(2,'0')}</span></span><span className="chapter-label"><small>{item.year}</small><strong>{chapters[item.id].short}</strong><span>{item.title}</span></span></>}>
       {(item, i, active) => <ExperienceSlide item={item} active={active} index={i}/>}
     </SlidingFrames></div>
     <div className="wrap experience-footnote"><p><strong>Presto Info Solutions</strong><span>June 2022 – July 2025 · One employment, distinct L1 and L2 responsibilities.</span></p><p>341 routers personally migrated.<br/>365+ routers covered by MOP documentation.</p></div>
