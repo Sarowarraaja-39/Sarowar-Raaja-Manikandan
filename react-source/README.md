@@ -4,7 +4,7 @@ A React portfolio connecting network and security experience with cybersecurity 
 
 **Website:** https://sarowarraaja-39.github.io/Sarowar-Raaja-Manikandan/
 
-The homepage includes a personal introduction and London skyline video, a six-project evidence map with full case studies, seven cinematic experience slides with separate Presto L1/L2 responsibilities, applied skill workflows, immersive university backgrounds, a personal mountain poster and contact links. Project metrics and research/professional scope remain explicit.
+The homepage includes a personal introduction and London skyline video, an About section explaining my progression from mechanical engineering into cybersecurity, a six-project evidence map with full case studies, seven cinematic experience slides with separate Presto L1/L2 responsibilities, applied skill workflows, university backgrounds with explained learning areas, a Regulation 2013 mechanical foundation, a personal mountain poster and contact links. Project metrics and research/professional scope remain explicit.
 
 ## Edit and run
 
@@ -35,4 +35,4 @@ Campus photographs retain their original Creative Commons credits. The personal 
 
 ## Verification scope
 
-The eight component DOM checks cover source-content preservation, chapter navigation and keyboard focus, visible role explanations, automatic-slide pause conditions, swipe direction, skill evidence callbacks, education frames and the scrap-built Bell helicopter award. jsdom does not render CSS; these checks do not establish responsive visual quality or browser compatibility.
+The nine component DOM checks cover source-content preservation, chapter navigation and keyboard focus, visible role explanations, automatic-slide pause conditions, swipe direction, skill evidence callbacks, education frames, the scrap-built Bell helicopter award, and the About-first section/navigation order. jsdom does not render CSS; these checks do not establish responsive visual quality or browser compatibility.

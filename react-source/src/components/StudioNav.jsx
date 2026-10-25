@@ -3,7 +3,7 @@ import { profile } from '../data/portfolio.js';
 import { Monogram } from './Brand.jsx';
 import { NavIcon, useClock } from './StudioUI.jsx';
 
-const links = [['work', 'Work'], ['journey', 'Journey'], ['toolkit', 'Skills'], ['education', 'Education'], ['about', 'About'], ['contact', 'Contact']];
+const links = [['about', 'About'], ['work', 'Work'], ['journey', 'Journey'], ['toolkit', 'Skills'], ['education', 'Education'], ['contact', 'Contact']];
 export default function StudioNav({ motion, setMotion }) {
   const [active, setActive] = useState('home');
   const [menu, setMenu] = useState(false);
@@ -34,6 +34,6 @@ export default function StudioNav({ motion, setMotion }) {
       <div className="mobile-actions">{motionButton}<button className="menu-toggle" ref={trigger} aria-expanded={menu} aria-controls="mobile-menu" onClick={() => setMenu(!menu)} aria-label={menu ? 'Close navigation' : 'Open navigation'}><span/><span/></button></div>
       <nav id="mobile-menu" className={menu ? 'mobile-menu open' : 'mobile-menu'} aria-label="Expanded navigation" hidden={!menu}>{links.map(([id, label]) => <a key={id} href={'#' + id} onClick={() => setMenu(false)}><NavIcon type={id}/>{label}<span aria-hidden="true">↗</span></a>)}</nav>
     </header>
-    <nav className="mobile-dock" aria-label="Quick navigation">{links.filter(([id]) => id !== 'about').map(([id, label]) => <a href={'#' + id} key={id} aria-current={active === id ? 'location' : undefined}><NavIcon type={id}/><span>{label}</span></a>)}</nav>
+    <nav className="mobile-dock" aria-label="Quick navigation">{links.map(([id, label]) => <a href={'#' + id} key={id} aria-current={active === id ? 'location' : undefined}><NavIcon type={id}/><span>{label}</span></a>)}</nav>
   </>;
 }

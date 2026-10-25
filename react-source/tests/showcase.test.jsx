@@ -2,6 +2,8 @@ import assert from 'node:assert/strict';
 import { afterEach, beforeEach, test } from 'node:test';
 import { act } from 'react';
 import { createRoot } from 'react-dom/client';
+import { renderToStaticMarkup } from 'react-dom/server';
+import App from '../src/App.jsx';
 import { JSDOM } from 'jsdom';
 import ExperienceJourney from '../src/components/ExperienceJourney.jsx';
 import { SkillsSection, EducationSection } from '../src/components/SkillsEducation.jsx';
@@ -148,6 +150,8 @@ test('Shared carousel changes preserve three education frames, credits and proje
     assert(active().textContent.includes(item.photo.author));
     assert.equal(active().querySelector('.campus-background').getAttribute('src'),item.photo.src);
     for(const skill of item.skills)assert(active().textContent.includes(skill));
+    for(const group of item.learningGroups)assert(active().querySelector('.learning-groups').textContent.includes(group.description));
+    assert(active().textContent.includes(item.analystConnection));
     for(const [j,id] of item.projectIds.entries()){
       assert(projects.find(project=>project.id===id));
       await click(active().querySelectorAll('.education-project')[j]); assert.equal(opened.at(-1),id);
@@ -162,6 +166,9 @@ test('Bachelor education shows the scrap-built Bell model and college first-plac
   const panel=active();
   assert(!panel.textContent.includes('SecureFI'));
   assert.equal(panel.querySelectorAll('.education-project').length,0);
+  assert.equal(panel.querySelector('.campus-regulation').textContent,'Regulation 2013');
+  assert.equal(panel.querySelector('.campus-period').textContent,'2016 — 2020');
+  assert(panel.querySelector('a.curriculum-source').getAttribute('href').startsWith('https://cac.annauniv.edu/'));
   assert.match(panel.textContent,/Bell helicopter model/);
   assert.match(panel.textContent,/1st place/);
   assert.match(panel.textContent,/college symposium/);
@@ -172,4 +179,18 @@ test('Bachelor education shows the scrap-built Bell model and college first-plac
   assert(photo,'Show the supplied model photograph.');
   assert.equal(photo.getAttribute('src'),'./assets/education/bell-helicopter-scrap-model.jpg');
   assert.equal(panel.querySelector('.student-project-photo-link').getAttribute('href'),photo.getAttribute('src'));
+});
+
+
+test('About follows the introduction and comes first in desktop, menu and mobile navigation', () => {
+  window.matchMedia=()=>({matches:false,addEventListener(){},removeEventListener(){}});
+  const fixture=document.createElement('div');
+  fixture.innerHTML=renderToStaticMarkup(<App/>);
+  assert.deepEqual([...fixture.querySelectorAll('main>section[id]')].map(section=>section.id),['home','about','work','journey','toolkit','education','contact']);
+  for(const selector of ['nav[aria-label="Main navigation"]','nav[aria-label="Expanded navigation"]','nav[aria-label="Quick navigation"]']){
+    const links=[...fixture.querySelector(selector).querySelectorAll('a')];
+    assert.equal(links[0].getAttribute('href'),'#about');
+    assert.equal(links.length,6);
+    for(const link of links)assert(fixture.querySelector(link.getAttribute('href')));
+  }
 });

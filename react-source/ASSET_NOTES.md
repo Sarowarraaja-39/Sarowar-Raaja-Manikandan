@@ -64,3 +64,8 @@ Personal mountain poster: user-selected https://uk.pinterest.com/pin/11311776314
 Bachelor project — owner-supplied photograph
 -------------------------------------------
 `public/assets/education/bell-helicopter-scrap-model.jpg` is copied byte-for-byte from the user-supplied `PHOTO-2026-10-25-08-33-27.jpg` (1428 × 1071). It shows Sarowar beside his model. The owner states the Bell helicopter model was built entirely from scrap metals and recovered motors, without new parts or components, and won first place at the college symposium. No claim of flight, airworthiness, manufacturer endorsement or a wider award is made. The source image is unmodified and no new image licence is asserted.
+
+
+Mechanical academic foundation — source
+---------------------------------------
+The Regulation 2013 label is supplied by the portfolio owner. Broad academic topics were checked against Anna University's official full-time affiliated-institutions B.E. mechanical curriculum: https://cac.annauniv.edu/aidetails/afug_2013_fu/08.%20Mech%281%29.pdf . These topics are presented as academic foundations; they do not assert professional CAD software proficiency or new qualifications. Regulation 2013 is not a graduation date. The original Bell model photograph and university photo credits remain unchanged.
