@@ -14,6 +14,7 @@ export default function StudioHero({ motion }) {
         <h1><span>Sarowar Raaja</span>{' '}<span>Manikandan<span className="name-stop">.</span></span></h1>
         <p className="hero-intro">I’m a network and security professional building my career in <strong>cybersecurity analysis.</strong></p>
         <p className="hero-detail">{profile.introDetail}</p>
+        <p className="hero-detail">{profile.studyDetail}</p>
         <a className="button primary-button" href="#work">Explore my work<Arrow direction="right"/></a>
         <div className="hero-values"><span>Analyse the traffic</span><span>Detect the threat</span><span>Built a safer tomorrow</span></div>
       </div>

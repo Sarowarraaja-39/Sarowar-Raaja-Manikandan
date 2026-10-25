@@ -4,7 +4,7 @@ A React portfolio connecting network and security experience with cybersecurity 
 
 **Website:** https://sarowarraaja-39.github.io/Sarowar-Raaja-Manikandan/
 
-The homepage includes a personal introduction and London skyline video, an About section explaining my progression from mechanical engineering into cybersecurity, a six-project evidence map with full case studies, seven cinematic experience slides with separate Presto L1/L2 responsibilities, applied skill workflows, university backgrounds with explained learning areas, a Regulation 2013 mechanical foundation, a personal mountain poster and contact links. Project metrics and research/professional scope remain explicit.
+The homepage includes a personal introduction and London skyline video, an About section explaining my progression from mechanical engineering into cybersecurity, a six-project evidence map with full case studies, six cinematic work experience slides with separate Presto L1/L2 responsibilities, applied skill workflows, university backgrounds with explained learning areas, a Regulation 2013 mechanical foundation, a personal mountain poster and contact links. The MSc appears in Education and its projects appear under Work. The introduction explains specific work tasks separately from academic lab practice. Project metrics and research/professional scope remain explicit.
 
 ## Edit and run
 

@@ -18,9 +18,6 @@ const chapters = {
   'presto-l2': { file:'telecom-backbone.webp', sector:'National telecom infrastructure', short:'Presto · L2', mark:'L2',
     alt:'Concept illustration of a nationwide telecom backbone connecting cities, core exchanges, towers and data centres.',
     relevance:'Validate findings, assess operational risk and connect a technical recommendation with a controlled, verifiable change.' },
-  surrey: { file:'cyber-analyst.webp', sector:'Cybersecurity / academic practice', short:'Cybersecurity', mark:'MSc',
-    alt:'Concept illustration of a cybersecurity analyst examining event timelines, packets and network relationships.',
-    relevance:'Combine an operational network foundation with structured investigation, evidence preservation and security research.' },
   bp: { file:'bp-operations.svg', sector:'United Kingdom / current role', short:'UK operations', mark:'UK',
     alt:'Role illustration of point-of-sale systems, equipment readings and structured operational records.',
     relevance:'Bring accurate records, clear communication and consistent follow-through to investigation and reporting tasks.' },
@@ -37,7 +34,7 @@ function ExperienceSlide({ item, active, index }) {
           <figcaption>{item.id === 'cameras' ? 'LAN topology' : item.id === 'bp' ? 'Operational systems illustration' : 'Concept illustration'}</figcaption>
         </figure>
       </div>
-      <div className="role-stage-top"><span className="eyebrow">{chapter.sector}</span><span className="role-chapter-count">{String(index + 1).padStart(2,'0')} <span>/ 07</span></span></div>
+      <div className="role-stage-top"><span className="eyebrow">{chapter.sector}</span><span className="role-chapter-count">{String(index + 1).padStart(2,'0')} <span>/ {String(career.length).padStart(2,'0')}</span></span></div>
       <div className="role-heading">
         <p className="role-employer">{item.company}</p><h3>{item.role}</h3>
         <p className="role-period"><span>{item.period}</span><span>{item.location}</span></p>

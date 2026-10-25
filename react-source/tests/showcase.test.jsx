@@ -42,7 +42,9 @@ const assertActive = index => {
   for(const panel of container.querySelectorAll('.sliding-frame[aria-hidden="true"]'))assert(panel.hasAttribute('inert'));
 };
 
-test('Seven career chapters preserve source facts, responsibilities and original chronological order', async () => {
+test('Six work experience chapters preserve role facts and chronological order, with the MSc in Education', async () => {
+  assert.deepEqual(career.map(item=>item.id),['cameras','bank','presto-l1','satellite','presto-l2','bp']);
+  assert(education.some(item=>item.degree==='MSc Cybersecurity'));
   await mount(<ExperienceJourney motion={false}/>);
   assert.equal(container.querySelectorAll('[role="tab"]').length,career.length);
   assertActive(4);
@@ -52,6 +54,7 @@ test('Seven career chapters preserve source facts, responsibilities and original
     assert.equal(panel.querySelector('h3').textContent,item.role);
     for(const text of [item.company,item.period,item.location,item.lead,...item.paragraphs,...item.bullets,...item.tools,...item.facts.flatMap(f=>[f.value,f.label])])assert(panel.textContent.includes(text),item.id+': missing '+text);
     assert(panel.querySelector('.role-scenery img').getAttribute('alt').length>30);
+    assert.equal(panel.querySelector('.role-chapter-count>span').textContent,'/ 06');
     const description=panel.querySelector('.role-stage .role-description');
     assert(description,item.id+': the full role explanation must be on the main slide');
     for(const text of item.paragraphs)assert(description.textContent.includes(text));
@@ -66,11 +69,11 @@ test('Career navigation wraps, announces selection, supports Home/End/arrows and
   await click(button('Next career slide')); assertActive(5);
   await click(button('Previous career slide')); assertActive(4);
   await key(selected(),'Home'); assertActive(0); assert.equal(document.activeElement,selected());
-  await key(selected(),'ArrowLeft'); assertActive(6); assert.equal(document.activeElement,selected());
+  await key(selected(),'ArrowLeft'); assertActive(career.length-1); assert.equal(document.activeElement,selected());
   await key(selected(),'ArrowRight'); assertActive(0);
-  await key(selected(),'End'); assertActive(6);
+  await key(selected(),'End'); assertActive(career.length-1);
   await click(button('Next career slide')); assertActive(0);
-  assert(container.querySelector('[role="status"]').textContent.includes('Slide 1 of 7'));
+  assert(container.querySelector('[role="status"]').textContent.includes('Slide 1 of '+career.length));
   assert.equal(container.querySelector('[aria-roledescription="carousel"]').dataset.playing,'false');
 });
 
