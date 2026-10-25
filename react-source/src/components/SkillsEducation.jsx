@@ -1,14 +1,22 @@
 import { education, profile, projects, skills } from '../data/portfolio.js';
 import ProjectGlyph from './ProjectGlyph.jsx';
 import SlidingFrames from './SlidingFrames.jsx';
+import CapabilityScene from './CapabilityScene.jsx';
 import { Arrow, NavIcon, SectionHeading } from './StudioUI.jsx';
 
 export function SkillsSection({ motion, blocked, onOpen }) {
   const open = id => onOpen(projects.find(project => project.id === id));
+  const titles = { '01': ['Understand','the traffic.'], '02': ['Follow','the evidence.'], '03': ['Make the checks','repeatable.'], '04': ['Turn findings','into priorities.'] };
+  const toolRoles = {
+    '01':['Network platforms','Core routing','Interior routing','Connected services','Traffic control'],
+    '02':['Traffic & vulnerability analysis','Detection & test traffic','Trust & encryption','Artefact investigation','Investigation workflow'],
+    '03':['Scripting','Connectivity checks','Configuration & templates','Versioning & evidence','Working knowledge'],
+    '04':['Control frameworks','Compliance concepts','Exposure management','Secure development','Testing concepts'],
+  };
   return <section className="section skills-section" id="toolkit"><div className="wrap">
-    <SectionHeading label="Capabilities / tools with context" title={<>The right tools.<br/><span>A clear reason to use them.</span></>}>Network operations, security investigation, repeatable engineering and risk. Explore the tools alongside the work that gives them context.</SectionHeading>
-    <SlidingFrames id="skills" label="Skills and tools" items={skills} getLabel={s => s.title} getDetail={s => s.note} motion={motion} blocked={blocked} interval={9000} className="skills-carousel">
-      {s => <article className="skill-card"><div className="skill-lead"><span className="skill-symbol" aria-hidden="true">{s.number === '01' ? '↔' : s.number === '02' ? '◈' : s.number === '03' ? '>_' : '✓'}</span><span className="eyebrow">{s.note}</span><h3>{s.title}</h3><p>{s.description}</p>{s.evidence.href ? <a className="text-link" href={s.evidence.href}>{s.evidence.label}<Arrow/></a> : <button className="text-link" onClick={() => open(s.evidence.project)}>{s.evidence.label}<Arrow/></button>}</div><div className="skill-methods"><h4 className="eyebrow">Tools & methods</h4><ul className="skill-tools" aria-label={s.title + ' tools and methods'}>{s.items.map((item, i) => <li key={item}><span aria-hidden="true">{String(i + 1).padStart(2, '0')}</span>{item}<span className="tool-line" aria-hidden="true"/></li>)}</ul></div></article>}
+    <SectionHeading label="Capabilities / the analyst toolkit" title={<>Tools are the start.<br/><span>How I use them matters.</span></>}>An operational foundation, practical security projects and a habit of leaving clear evidence. Explore the methods behind the tool names.</SectionHeading>
+    <SlidingFrames id="skills" label="Skills and applied workflows" items={skills} getLabel={s => s.title} motion={motion} blocked={blocked} interval={11000} className="capability-carousel" renderTab={s => <><span className="capability-tab-icon" aria-hidden="true">{s.number === '01' ? '↔' : s.number === '02' ? '⌕' : s.number === '03' ? '>_' : '◎'}</span><span><small>{s.number} / CAPABILITY</small><strong>{s.title}</strong></span><span className="capability-tab-arrow" aria-hidden="true">↗</span></>}>
+      {(s, i, active) => <article className="capability-slide" data-active={active}><div className="capability-content"><div className="capability-copy"><span className="eyebrow">{s.note}</span><h3>{titles[s.number][0]}<br/><span>{titles[s.number][1]}</span></h3><p>{s.description}</p>{s.evidence.href ? <a className="button primary-button" href={s.evidence.href}>{s.evidence.label}<Arrow/></a> : <button className="button primary-button" onClick={() => open(s.evidence.project)}>{s.evidence.label}<Arrow/></button>}<span className="capability-scope">{s.number === '04' ? 'Working knowledge and design exposure' : s.number === '02' ? 'Operational experience + academic labs' : s.note}</span></div><CapabilityScene number={s.number}/></div><div className="capability-tools"><h4><span className="eyebrow">The tools behind it</span><span>{s.title}</span></h4><ul aria-label={s.title + ' tools and methods'}>{s.items.map((item, itemIndex) => <li key={item}><small>{toolRoles[s.number][itemIndex]}</small><strong>{item}</strong></li>)}</ul></div></article>}
     </SlidingFrames>
     <div className="certifications"><div><p className="eyebrow">Professional credentials</p><h3>Knowledge.<br/>Validated.</h3></div><div className="certification-list">{profile.certificates.map((certificate, i) => {
       const href = profile.certificateLinks?.[certificate]; const Tag = href ? 'a' : 'div';

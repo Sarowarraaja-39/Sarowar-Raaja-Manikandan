@@ -1,15 +1,22 @@
 import { useEffect, useRef, useState } from 'react';
 
 // A single readable frame with optional, interruptible automatic movement.
-export default function SlidingFrames({id, label, items, getLabel, getDetail, children, motion, blocked=false, interval=8000, className=''}) {
-  const [index,setIndex]=useState(0);
+export default function SlidingFrames({id, label, items, getLabel, getDetail, renderTab, initialIndex=0, children, motion, blocked=false, interval=8000, className=''}) {
+  const [index,setIndex]=useState(initialIndex);
   const [paused,setPaused]=useState(false);
   const [hover,setHover]=useState(false);
   const [inView,setInView]=useState(false);
   const [visible,setVisible]=useState(()=>!document.hidden);
   const [announcement,setAnnouncement]=useState('');
-  const root=useRef(null),touch=useRef(null),latest=useRef(0);
+  const root=useRef(null),touch=useRef(null),latest=useRef(initialIndex),tabRefs=useRef([]),tabList=useRef(null);
   const playing=motion&&!paused&&!hover&&inView&&visible&&!blocked;
+  useEffect(()=>{
+    const list=tabList.current,selected=tabRefs.current[index];
+    if(list&&selected&&list.scrollWidth>list.clientWidth){
+      const left=selected.offsetLeft-list.offsetLeft-(list.clientWidth-selected.offsetWidth)/2;
+      list.scrollLeft=Math.max(0,left);
+    }
+  },[index]);
   useEffect(()=>{
     if(!('IntersectionObserver' in window)){setInView(true);return;}
     const observer=new IntersectionObserver(entries=>setInView(entries[0].isIntersecting),{threshold:.15});
@@ -44,8 +51,8 @@ export default function SlidingFrames({id, label, items, getLabel, getDetail, ch
     touch.current=null;
   };
   return <div ref={root} className={`sliding-section ${className}`} id={`${id}-carousel`} role="region" aria-roledescription="carousel" aria-label={label} data-playing={playing} onMouseEnter={()=>setHover(true)} onMouseLeave={()=>setHover(false)} onFocusCapture={event=>{if(!event.target.closest('.frame-play'))setPaused(true);}}>
-    <div className="frame-tabs" role="tablist" aria-label={`Choose ${id} slide`}>
-      {items.map((item,i)=><button key={i} id={`${id}-tab-${i}`} role="tab" aria-controls={`${id}-slide-${i}`} aria-selected={index===i} tabIndex={index===i?0:-1} onClick={()=>select(i)} onKeyDown={event=>keyDown(event,i)}><span className="frame-tab-index">{String(i+1).padStart(2,'0')}</span><span><strong>{getLabel(item)}</strong>{getDetail&&<small>{getDetail(item)}</small>}</span><span className="frame-tab-arrow" aria-hidden="true">↗</span></button>)}
+    <div ref={tabList} className="frame-tabs" role="tablist" aria-label={`Choose ${id} slide`}>
+      {items.map((item,i)=><button ref={el=>tabRefs.current[i]=el} key={i} id={`${id}-tab-${i}`} role="tab" aria-controls={`${id}-slide-${i}`} aria-selected={index===i} tabIndex={index===i?0:-1} onClick={()=>select(i)} onKeyDown={event=>keyDown(event,i)}>{renderTab?renderTab(item,i,index===i):<><span className="frame-tab-index">{String(i+1).padStart(2,'0')}</span><span><strong>{getLabel(item)}</strong>{getDetail&&<small>{getDetail(item)}</small>}</span><span className="frame-tab-arrow" aria-hidden="true">↗</span></>}</button>)}
     </div>
     <div className="frame-viewport" id={`${id}-viewport`} onTouchStart={event=>{if(event.target.closest('a,button,input,select,textarea'))return;touch.current={x:event.touches[0].clientX,y:event.touches[0].clientY};}} onTouchEnd={swipe} onTouchCancel={()=>{touch.current=null;}}>
       <div className="sliding-track" style={{transform:`translate3d(-${index*100}%,0,0)`}}>

@@ -34,7 +34,7 @@ export default function App() {
         <StudioHero motion={motion}/>
         <CredibilityStrip/>
         <ProjectShowcase onOpen={setProject}/>
-        <ExperienceJourney/>
+        <ExperienceJourney motion={motion} blocked={!!project}/>
         <SkillsSection motion={motion} blocked={!!project} onOpen={setProject}/>
         <EducationSection motion={motion} blocked={!!project} onOpen={setProject}/>
         <AboutSection onOpen={setProject}/>
