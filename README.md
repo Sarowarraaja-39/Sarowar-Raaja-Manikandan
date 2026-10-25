@@ -29,10 +29,10 @@ The `gh-pages` branch contains the published production build. After rebuilding,
 
 ## Controls and accessibility
 
-The motion button stops the background video, path animation and automatic slides. Initial reduced-motion visits use the video poster instead of loading the clip. Project and career selectors support arrow keys, Home and End; case-study dialogs support Escape and return keyboard focus. Experience, skills and education frames have manual controls, pause on interaction and stop while a case study is open. Each role includes its full responsibilities in a native disclosure, and skills link directly to related evidence. Mobile navigation uses a menu and compact bottom dock.
+The motion button stops the background video, path animation and automatic slides. Initial reduced-motion visits use the video poster instead of loading the clip. Project and career selectors support arrow keys, Home and End; case-study dialogs support Escape and return keyboard focus. Experience, skills and education frames have manual controls, pause on interaction and stop while a case study is open. Each role shows its full explanation and responsibilities directly on the slide, with a 30-second reading interval; skills link directly to related evidence. Mobile navigation uses a menu and compact bottom dock.
 
 Campus photographs retain their original Creative Commons credits. The personal mountain poster was specifically selected by the portfolio owner; see its source note before reusing it. No original employer documents or private production logs are included.
 
 ## Verification scope
 
-The seven component DOM checks cover source-content preservation, chapter navigation and keyboard focus, native disclosures, automatic-slide pause conditions, swipe direction, skill evidence callbacks and education frames. jsdom does not render CSS; these checks do not establish responsive visual quality or browser compatibility.
+The eight component DOM checks cover source-content preservation, chapter navigation and keyboard focus, visible role explanations, automatic-slide pause conditions, swipe direction, skill evidence callbacks, education frames and the scrap-built Bell helicopter award. jsdom does not render CSS; these checks do not establish responsive visual quality or browser compatibility.
