@@ -8,18 +8,20 @@ An evidence-led portfolio with an identity rail, connected project map and photo
 
 | Role | Value |
 | --- | --- |
-| Background | `#10182b` |
-| Panel | `#172239` |
-| Raised surface | `#1c2943` |
+| Background | `#202b40` |
+| Panel | `#2a3850` |
+| Raised surface | `#33445f` |
 | Primary indigo | `#3949ab` |
 | Main text | `#f2f3f7` |
-| Secondary text | `#b4bed2` |
+| Secondary text | `#c6d0e2` |
 | Accent | `#b4abff` |
 | Focus | `#d4c5ff` |
-| Interactive boundary | `#647994` |
+| Interactive boundary | `#899db9` |
 | Warm portrait accent | `#f0b978` |
 
 Manrope is the main typeface, with Courier New for small metadata. Bebas Neue is limited to decorative display type. Spacing uses 4/8/12/16/24/32/48/64/96/128px roles. Radius is restrained: 8px panels, 12px campus/dialog viewports and round icon controls.
+
+The canvas uses a softer slate-navy palette. Shared RGB tokens keep translucent navigation and experience surfaces consistent. Campus photograph scrims retain their original contrast treatment. The London clip uses 90% saturation and a small brightness lift. A lighter directional scrim reveals the skyline while retaining stronger shading behind the text; the mobile scrim opens up across the portrait and strengthens again behind the lower copy. The original video, poster, motion controls and reduced-motion behaviour are preserved.
 
 ## Structure
 
