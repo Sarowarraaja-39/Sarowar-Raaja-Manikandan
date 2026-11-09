@@ -29,7 +29,7 @@ export default function StudioNav({ motion, setMotion }) {
     </aside>
     <header className="context-header">
       <a className="mobile-brand" href="#home" aria-label="Sarowar Raaja Manikandan home"><Monogram/><span>Sarowar Raaja<span>Manikandan</span></span></a>
-      <div className="context-name"><span className="status-dot"/>Sarowar Raaja Manikandan<span className="context-separator"/>Network & security</div>
+      <div className="context-name"><span className="status-dot"/>Sarowar Raaja Manikandan<span className="context-separator"/>Network engineering & security</div>
       <div className="context-location"><span>{profile.location}</span><time>{clock}</time></div>
       <div className="mobile-actions">{motionButton}<button className="menu-toggle" ref={trigger} aria-expanded={menu} aria-controls="mobile-menu" onClick={() => setMenu(!menu)} aria-label={menu ? 'Close navigation' : 'Open navigation'}><span/><span/></button></div>
       <nav id="mobile-menu" className={menu ? 'mobile-menu open' : 'mobile-menu'} aria-label="Expanded navigation" hidden={!menu}>{links.map(([id, label]) => <a key={id} href={'#' + id} onClick={() => setMenu(false)}><NavIcon type={id}/>{label}<span aria-hidden="true">↗</span></a>)}</nav>

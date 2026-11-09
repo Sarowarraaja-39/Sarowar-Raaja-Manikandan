@@ -6,22 +6,22 @@ import { Arrow, NavIcon, SectionHeading } from './StudioUI.jsx';
 
 export function SkillsSection({ motion, blocked, onOpen }) {
   const open = id => onOpen(projects.find(project => project.id === id));
-  const titles = { '01': ['Understand','the traffic.'], '02': ['Follow','the evidence.'], '03': ['Make the checks','repeatable.'], '04': ['Turn findings','into priorities.'] };
+  const titles = { '01': ['Keep networks','connected.'], '02': ['Protect','the network.'], '03': ['Make checks','repeatable.'], '04': ['Control','the change.'] };
   const toolRoles = {
     '01':['Network platforms','Core routing','Interior routing','Connected services','Traffic control'],
-    '02':['Traffic & vulnerability analysis','Detection & test traffic','Trust & encryption','Artefact investigation','Investigation workflow'],
+    '02':['Security controls','Traffic analysis','Vulnerability checks','Protected communications','Academic detection labs'],
     '03':['Scripting','Connectivity checks','Configuration & templates','Versioning & evidence','Working knowledge'],
-    '04':['Control frameworks','Compliance concepts','Exposure management','Secure development','Testing concepts'],
+    '04':['Change procedures','Service validation','Framework knowledge','Secure development','Risk & remediation'],
   };
   return <section className="section skills-section" id="toolkit"><div className="wrap">
-    <SectionHeading label="Capabilities / the analyst toolkit" title={<>The tools I use,<br/><span>and what I use them for.</span></>}>I combine network troubleshooting with security lab work. These sections explain what I use the tools for and link to the work that demonstrates it.</SectionHeading>
+    <SectionHeading label="Capabilities / network engineering & security" title={<>The tools I use,<br/><span>and what I use them for.</span></>}>Routing and switching keep services connected. Security controls protect access. Repeatable checks and clear change procedures help me verify that both work as intended.</SectionHeading>
     <SlidingFrames id="skills" label="Skills and applied workflows" items={skills} getLabel={s => s.title} motion={motion} blocked={blocked} interval={11000} className="capability-carousel" renderTab={s => <><span className="capability-tab-icon" aria-hidden="true">{s.number === '01' ? '↔' : s.number === '02' ? '⌕' : s.number === '03' ? '>_' : '◎'}</span><span><small>{s.number} / CAPABILITY</small><strong>{s.title}</strong></span><span className="capability-tab-arrow" aria-hidden="true">↗</span></>}>
-      {(s, i, active) => <article className="capability-slide" data-active={active}><div className="capability-content"><div className="capability-copy"><span className="eyebrow">{s.note}</span><h3>{titles[s.number][0]}<br/><span>{titles[s.number][1]}</span></h3><p>{s.description}</p>{s.evidence.href ? <a className="button primary-button" href={s.evidence.href}>{s.evidence.label}<Arrow/></a> : <button className="button primary-button" onClick={() => open(s.evidence.project)}>{s.evidence.label}<Arrow/></button>}<span className="capability-scope">{s.number === '04' ? 'Working knowledge and design exposure' : s.number === '02' ? 'Operational experience + academic labs' : s.note}</span></div><CapabilityScene number={s.number}/></div><div className="capability-tools"><h4><span className="eyebrow">The tools behind it</span><span>{s.title}</span></h4><ul aria-label={s.title + ' tools and methods'}>{s.items.map((item, itemIndex) => <li key={item}><small>{toolRoles[s.number][itemIndex]}</small><strong>{item}</strong></li>)}</ul></div></article>}
+      {(s, i, active) => <article className="capability-slide" data-active={active}><div className="capability-content"><div className="capability-copy"><span className="eyebrow">{s.note}</span><h3>{titles[s.number][0]}<br/><span>{titles[s.number][1]}</span></h3><p>{s.description}</p>{s.evidence.href ? <a className="button primary-button" href={s.evidence.href}>{s.evidence.label}<Arrow/></a> : <button className="button primary-button" onClick={() => open(s.evidence.project)}>{s.evidence.label}<Arrow/></button>}<span className="capability-scope">{s.note}</span></div><CapabilityScene number={s.number}/></div><div className="capability-tools"><h4><span className="eyebrow">The tools behind it</span><span>{s.title}</span></h4><ul aria-label={s.title + ' tools and methods'}>{s.items.map((item, itemIndex) => <li key={item}><small>{toolRoles[s.number][itemIndex]}</small><strong>{item}</strong></li>)}</ul></div></article>}
     </SlidingFrames>
     <MechanicalFoundation/>
-    <div className="certifications"><div><p className="eyebrow">Professional credentials</p><h3>Knowledge.<br/>Validated.</h3></div><div className="certification-list">{profile.certificates.map((certificate, i) => {
-      const href = profile.certificateLinks?.[certificate]; const Tag = href ? 'a' : 'div';
-      return <Tag className="cert-card" key={certificate} {...(href ? { href, target: '_blank', rel: 'noreferrer', 'aria-label': 'View ' + certificate + ' credential' } : {})}><span className="cert-icon">{i === 0 ? 'CEH' : 'S+'}</span><span><strong>{certificate}</strong><small>{i === 0 ? 'EC-Council' : 'CompTIA'} · {href ? 'View credential' : 'Certified'}</small></span>{href ? <Arrow/> : <span className="cert-check" aria-label="Certified">✓</span>}</Tag>;
+    <div className="certifications"><div><p className="eyebrow">Credentials & learning</p><h3>Knowledge.<br/>Kept current.</h3></div><div className="certification-list">{profile.credentials.map(credential => {
+      const {href} = credential; const Tag = href ? 'a' : 'div';
+      return <Tag className="cert-card" data-kind={credential.kind} key={credential.name} {...(href ? { href, target: '_blank', rel: 'noreferrer', 'aria-label': 'View ' + credential.name + ' credential' } : {})}><span className="cert-icon">{credential.badge}</span><span><strong>{credential.name}</strong><small>{credential.issuer} · {credential.status}</small></span>{href ? <Arrow/> : <span className="credential-type">Study</span>}</Tag>;
     })}</div></div>
   </div></section>;
 }
@@ -70,7 +70,7 @@ export function EducationSection({ motion, blocked, onOpen }) {
             {e.showAppliedSkills && <><h4>{e.skillsLabel}</h4><ul className="campus-skills" aria-label={e.degree + ' skills'}>{e.skills.map(skill => <li key={skill}>{skill}</li>)}</ul></>}
             <h4>{e.learningLabel}</h4><LearningGroups groups={e.learningGroups} narrative={!e.showAppliedSkills}/>
             {e.curriculumSource && <a className="curriculum-source text-link" href={e.curriculumSource.href} target="_blank" rel="noreferrer">{e.curriculumSource.label}<Arrow/></a>}
-            <aside className="degree-connection"><h4>What I bring forward</h4><p>{e.analystConnection}</p></aside>
+            <aside className="degree-connection"><h4>What I bring to network engineering</h4><p>{e.engineeringConnection}</p></aside>
           </div>
           <div className="campus-projects"><h4 className="eyebrow">{e.projectLabel}</h4><p>{e.projectNote}</p>
             {e.studentProject && <StudentProject project={e.studentProject}/>}

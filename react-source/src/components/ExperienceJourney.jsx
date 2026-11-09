@@ -5,22 +5,22 @@ import { SectionHeading } from './StudioUI.jsx';
 const chapters = {
   cameras: { file:'lan-topology.svg', sector:'Local networks', short:'LAN & surveillance', mark:'LAN',
     alt:'LAN topology with a VPN gateway and managed switch connecting office and surveillance devices on separate VLANs.',
-    relevance:'Understand normal network paths, isolate faults and recognise why segmentation matters when investigating unusual traffic.' },
+    relevance:'Build clear LAN segments, check switch and PoE requirements, and isolate connectivity faults without disrupting unrelated devices.' },
   bank: { file:'bank-backend.webp', sector:'Banking infrastructure', short:'Banking networks', mark:'WAN',
     alt:'Concept illustration of a banking backend with server racks, a gateway, branches and ATM connections.',
-    relevance:'Work from connectivity symptoms to packet evidence, coordinate escalation and document corrective actions clearly.' },
+    relevance:'Trace LAN/WAN faults using traffic evidence, coordinate with service providers and verify connectivity after corrective action.' },
   'presto-l1': { file:'telecom-operations.webp', sector:'Telecommunications / first line', short:'Presto · L1', mark:'L1',
     alt:'Concept illustration of engineers monitoring nationwide telecom connectivity in a network operations centre.',
-    relevance:'Triage with context, explain customer impact and leave a clear resolution record for the next person to review.' },
+    relevance:'Give L2 engineers useful diagnostics, keep customers informed and explain the cause and resolution in a clear handover.' },
   satellite: { file:'leo-communications.webp', sector:'Satellite communications', short:'Satellite links', mark:'LEO',
     alt:'Concept illustration of a low-Earth-orbit satellite, orbital communication links and a ground station.',
-    relevance:'Question resilience, map dependencies and identify single points of failure before proposing a control.' },
+    relevance:'Map link dependencies, review capacity and identify single points of failure before recommending redundancy.' },
   'presto-l2': { file:'telecom-backbone.webp', sector:'National telecom infrastructure', short:'Presto · L2', mark:'L2',
     alt:'Concept illustration of a nationwide telecom backbone connecting cities, core exchanges, towers and data centres.',
-    relevance:'Validate findings, assess operational risk and connect a technical recommendation with a controlled, verifiable change.' },
+    relevance:'Plan routing and VPN changes, prepare rollback steps, validate security findings and check service continuity after implementation.' },
   bp: { file:'bp-operations.svg', sector:'United Kingdom / current role', short:'UK operations', mark:'UK',
     alt:'Role illustration of point-of-sale systems, equipment readings and structured operational records.',
-    relevance:'Bring accurate records, clear communication and consistent follow-through to investigation and reporting tasks.' },
+    relevance:'Keep operational records accurate, prioritise requests and communicate clearly with customers and colleagues during busy periods.' },
 };
 
 function ExperienceSlide({ item, active, index }) {
@@ -42,13 +42,13 @@ function ExperienceSlide({ item, active, index }) {
       <div className="role-introduction"><div className="role-explanation"><p className="role-lead">{item.lead}</p><div className="role-description">{item.paragraphs.map(text => <p key={text}>{text}</p>)}</div></div><div className="role-facts">{item.facts.map(f => <div key={f.label}><strong>{f.value}</strong><span>{f.label}</span></div>)}</div></div>
     </div>
     <div className="role-responsibilities"><h4 className="eyebrow">Responsibilities<br/>& tools</h4><div><ul className="role-responsibility-list">{item.bullets.map(text => <li key={text}>{text}</li>)}</ul><ul className="tool-list" aria-label={item.role + ' tools'}>{item.tools.map(tool => <li key={tool}>{tool}</li>)}</ul></div></div>
-    <div className="role-transfer"><span className="eyebrow">What I bring to an analyst role</span><p>{chapter.relevance}</p><span className="role-transfer-arrow" aria-hidden="true">↗</span></div>
+    <div className="role-transfer"><span className="eyebrow">What I bring to network & security teams</span><p>{chapter.relevance}</p><span className="role-transfer-arrow" aria-hidden="true">↗</span></div>
   </article>;
 }
 
 export default function ExperienceJourney({ motion, blocked }) {
   return <section className="section journey-section" id="journey">
-    <div className="wrap"><SectionHeading label="Experience / from operations to analysis" title={<>Real infrastructure.<br/><span>A security mindset.</span></>}>Banking, telecoms and the networks in between. Explore the roles behind my approach to investigation, validation and clear evidence.</SectionHeading></div>
+    <div className="wrap"><SectionHeading label="Experience / network operations & engineering" title={<>From local networks<br/><span>to national backbones.</span></>}>Banking, telecoms and the networks in between. My work spans customer fault handling, routing and VPN troubleshooting, controlled migrations and service verification.</SectionHeading></div>
     <div className="experience-shell"><SlidingFrames id="career" label="Professional experience" items={career} getLabel={item => item.role + ' · ' + item.company} initialIndex={4} motion={motion} blocked={blocked} interval={30000} className="experience-carousel" renderTab={(item, i) => <><span className="chapter-preview" aria-hidden="true"><img src={'./assets/career/' + chapters[item.id].file} alt="" width="240" height="135" loading="lazy"/><span>{String(i + 1).padStart(2,'0')}</span></span><span className="chapter-label"><small>{item.year}</small><strong>{chapters[item.id].short}</strong><span>{item.title}</span></span></>}>
       {(item, i, active) => <ExperienceSlide item={item} active={active} index={i}/>}
     </SlidingFrames></div>

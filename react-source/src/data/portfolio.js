@@ -1,13 +1,15 @@
 export const profile = {
-  name: 'Sarowar Raaja Manikandan', shortName: 'Sarowar Raaja', role: 'Network & Security Engineer',
+  name: 'Sarowar Raaja Manikandan', shortName: 'Sarowar Raaja', role: 'Network Engineer & Network Security Specialist',
   location: 'Guildford, UK', timezone: 'Europe/London', email: 'sarowarraajaUK@gmail.com',
   linkedin: 'https://www.linkedin.com/in/sarowar-raaja-m/', github: 'https://github.com/Sarowarraaja-39',
-  intro: 'a network and security professional building my career in cybersecurity analysis.',
-  introDetail: 'In banking and telecoms roles, I investigated connection faults using Wireshark and NetFlow, passed diagnostic evidence to specialist engineers and kept customers updated. I also wrote router migration procedures with rollback steps and checks to confirm that services worked after a change.',
-  studyDetail: 'Through MSc projects at the University of Surrey, I use Snort to test intrusion detection in a controlled lab and examine Android data to reconstruct events. I document the evidence, explain my findings and recommend fixes.',
-  summary: 'Network and security professional building a career in cybersecurity analysis. I investigate connection faults, document router changes and explain findings to customers and engineers. My MSc projects at Surrey focus on controlled intrusion-detection tests and digital evidence analysis.',
-  certificates: ['Certified Ethical Hacker', 'CompTIA Security+'],
-  certificateLinks: { 'Certified Ethical Hacker': 'https://lnkd.in/p/edJ3cAif' },
+  intro: 'I keep networks connected, resolve faults and help protect the systems that depend on them.',
+  introDetail: 'My experience covers banking and national telecoms networks: Cisco routing, MPLS and VPN services, fault diagnosis and controlled migrations. I work through packet loss and routing issues, coordinate with customers and engineering teams, and verify connectivity after a change.',
+  focusDetail: 'I combine network segmentation and vulnerability checks with clear migration procedures, rollback plans and post-change verification. That means understanding what will change, how to recover if something fails and how to confirm that services work as expected.',
+  summary: 'Network Engineer and Network Security Specialist with experience in Cisco routing, MPLS/VPN services, network troubleshooting and controlled infrastructure changes across banking and telecoms.',
+  credentials: [
+    {name:'Certified Ethical Hacker',badge:'CEH',issuer:'EC-Council',status:'Certified',kind:'certification',href:'https://lnkd.in/p/edJ3cAif'},
+    {name:'Security+ syllabus',badge:'S+',issuer:'YouTube coursework',status:'Completed self-study',kind:'study'},
+  ],
   languages: ['English', 'Tamil', 'German · professional'],
 };
 
@@ -39,15 +41,15 @@ export const career = [
     facts:[{value:'341',label:'routers personally migrated · CV figure'},{value:'500+',label:'upgrade locations contributed to · CV figure'}],tools:['Cisco ASR','MPLS','IOS XR','Nessus'],visual:'backbone' },
   { id:'bp',year:'2026',period:'February 2026 — present',chapter:'UK / CURRENT ROLE',title:'The daily discipline.',role:'Customer Assistant',company:'BP',location:'United Kingdom',
     lead:'Accurate systems use. Clear records. Consistent follow-through.',
-    paragraphs:['Alongside my cybersecurity development, I work as a Customer Assistant at BP. I operate point-of-sale systems, process transactions accurately and manage customer enquiries.','I capture equipment readings and machine operating status in structured operational logs, then compile and submit routine monitoring records for management review.','This role strengthens the accuracy, traceability, prioritisation and clear communication I bring to an analyst role.'],
+    paragraphs:['Alongside my network and security career development, I work as a Customer Assistant at BP. I operate point-of-sale systems, process transactions accurately and manage customer enquiries.','I capture equipment readings and machine operating status in structured operational logs, then compile and submit routine monitoring records for management review.','This role reinforces the accurate records, task prioritisation and clear customer communication I bring to network support and engineering teams.'],
     bullets:['Operate POS systems and process customer transactions accurately','Record equipment readings and machine operating status in structured logs','Compile and submit equipment monitoring records and routine reports','Coordinate customer assistance, till operations and documentation responsibilities'],
     facts:[{value:'CURRENT',label:'UK customer operations · since February 2026'},{value:'LOGS',label:'equipment readings, status and reporting'}],tools:['POS systems','Operational logs','Equipment monitoring','Reporting','Customer communication'],visual:'bp' },
 ];
 
-export const analystStrengths = [
- {number:'01',title:'Understand the traffic.',description:'Experience with Wireshark, NetFlow and network troubleshooting helps me investigate unusual behaviour and understand how systems communicate.',href:'#journey',linkLabel:'Explore my network experience',visual:'packets'},
- {number:'02',title:'Investigate with structure.',description:'My practical security projects cover intrusion detection, malware analysis and digital forensics, with an emphasis on evidence, findings and remediation recommendations.',project:'packet',linkLabel:'Explore Packet to Proof',visual:'shield'},
- {number:'03',title:'Make findings actionable.',description:'I turn technical observations into clear documentation, investigation records and repeatable procedures that support informed decisions.',project:'evidence',linkLabel:'Explore my documentation work',visual:'evidence'},
+export const engineeringStrengths = [
+ {number:'01',title:'Restore connectivity.',description:'I trace service issues across LAN and WAN paths, use Wireshark and NetFlow to examine traffic, and coordinate with the right teams to resolve faults and verify recovery.',href:'#journey',linkLabel:'Explore my network experience',visual:'packets'},
+ {number:'02',title:'Protect network access.',description:'I use segmentation and traffic checks to understand which systems can communicate. I validate vulnerability findings and document corrective actions so security changes have a clear technical basis.',href:'#toolkit',linkLabel:'Explore my network security skills',visual:'shield'},
+ {number:'03',title:'Make changes reviewable.',description:'My migration procedures set out the change, rollback steps and checks needed afterwards. Acceptance Testing records show what was verified, making handovers and technical reviews easier.',project:'evidence',linkLabel:'Explore my documentation work',visual:'evidence'},
 ];
 
 export const projects = [
@@ -109,10 +111,10 @@ const projectAnalysis = {
 for(const project of projects)Object.assign(project,projectAnalysis[project.id]);
 
 export const skills = [
- {title:'Networks',number:'01',description:'I trace how traffic moves between devices and sites, work through routing or VPN faults, and verify that connectivity is restored after a change.',evidence:{href:'#journey',label:'Explore my network experience'},items:['Cisco IOS / IOS XR','MPLS · LDP · BGP','OSPF · IS-IS','L2/L3 VPN · SD-WAN','Segmentation · QoS · FMC'],note:'Operational foundation'},
- {title:'Security',number:'02',description:'I examine network activity and reported security weaknesses, check the supporting evidence, and record what needs further investigation or corrective action. My projects add controlled detection and forensic exercises.',evidence:{project:'packet',label:'See Packet to Proof'},items:['Wireshark · Nessus','Snort · Scapy · Nmap','OpenSSL · private PKI','Digital forensics · JADX','Incident & vulnerability triage'],note:'Operations and academic labs'},
+ {title:'Routing & switching',number:'01',description:'I trace traffic between devices and sites, work through routing and VPN faults, and check service continuity after configuration changes. My telecoms work includes Cisco IOS / IOS XR and MPLS-based backbone environments.',evidence:{href:'#journey',label:'Explore my network experience'},items:['Cisco ASR · IOS / IOS XR','MPLS · LDP · BGP','OSPF · IS-IS','LAN/WAN · L2/L3 VPN','VLAN · QoS · SD-WAN'],note:'Operational networking'},
+ {title:'Network security',number:'02',description:'I review network paths and segmentation, examine traffic and validate reported vulnerabilities before recommending corrective action. My academic labs add secure-communication checks and controlled intrusion-detection tests.',evidence:{project:'packet',label:'See the supporting security lab'},items:['Cisco FMC · segmentation','Wireshark · NetFlow','Nessus · Nmap','VPN · OpenSSL · private PKI','Snort · Scapy · detection tests'],note:'Operations and academic labs'},
  {title:'Automation',number:'03',description:'I use scripts to run checks consistently and produce reports others can review. DA Security Assessor separates configuration, checks and reporting so an assessment is easier to repeat.',evidence:{project:'assessor',label:'See DA Security Assessor'},items:['Python · Bash','Web3.py · JSON-RPC','PyYAML · Jinja2','Git · structured reporting','PowerShell · working knowledge'],note:'Repeatable engineering'},
- {title:'Risk & design',number:'04',description:'I connect a proposed security control with the problem it should address. In the SecureFI design, I mapped findings to risk priorities, proposed fixes and evidence a reviewer could check.',evidence:{project:'securefi',label:'See SecureFI'},items:['ISO 27001 · NIST CSF','PCI DSS · SOC 2','CTEM · risk prioritisation','Secure SDLC · SBOM','SAST / DAST / SCA concepts'],note:'Working knowledge / project exposure'},
+ {title:'Risk & change',number:'04',description:'Before a network migration, I document readiness checks, the change sequence and a rollback plan. After the change, I verify service behaviour and record the results. Security framework knowledge helps me explain the risks and controls around that work.',evidence:{project:'evidence',label:'See migration documentation'},items:['AT · MOP · rollback plans','Configuration · post-change checks','ISO 27001 · NIST CSF','Secure SDLC · SBOM concepts','CTEM · remediation tracking'],note:'Operational change / design knowledge'},
 ];
 
 export const mechanicalFoundation = {
@@ -135,8 +137,8 @@ export const mechanicalFoundation = {
 };
 
 export const education = [
- {degree:'MSc Cybersecurity',school:'University of Surrey',shortSchool:'Surrey',period:'2025 — 2026',level:'MSc',focus:'Turning an operational networking background into a structured approach to security investigation.',
-  overview:'My academic projects give me a controlled setting to test detection ideas, examine digital evidence and explain security controls. The emphasis is on how I reach a finding and what a reviewer would need to check it.',
+ {degree:'MSc Cybersecurity',school:'University of Surrey',shortSchool:'Surrey',period:'2025 — 2026',level:'MSc',focus:'Understanding how network access, secure communications and detection controls protect connected systems.',
+  overview:'Network security and cryptography add a security perspective to my routing and operations experience. Lab work gives me a controlled setting to examine how controls behave, document their results and explain their limitations.',
   skills:['Network security','Digital forensics','Cryptography','Secure systems'],skillsLabel:'Degree & project focus',
   learningLabel:'Technical skills in practice',learningGroups:[
    {title:'Network security',description:'I examine how systems communicate and whether their activity matches what is expected. In controlled lab work, I used Scapy and Snort to create detection tests and connect traffic observations with documented findings.'},
@@ -144,11 +146,11 @@ export const education = [
    {title:'Cryptography',description:'Cryptography protects information; public-key infrastructure helps establish whom a connection can trust. I built a private PKI with OpenSSL and examined trust controls around TLS 1.3, SSH and Kerberos in academic lab work.'},
    {title:'Secure systems',description:'A finding needs a useful next step. My project work connects attack timelines and risk findings with layered remediation recommendations, so a reader can understand both the problem and the proposed response.'},
   ],
-  analystConnection:'Connect an observation to a structured investigation, preserve the evidence and explain the limits of the finding before recommending action.',
+  engineeringConnection:'Bring an understanding of encrypted communications and detection controls to network troubleshooting, access reviews and clear technical recommendations.',
   projectIds:['twinshield','packet'],projectLabel:'Academic projects',projectNote:'Research and lab work that connect my network background with security analysis.',
   photo:{src:'./assets/education/surrey-campus.webp',width:1440,height:1117,alt:'Aerial view of the University of Surrey Stag Hill campus in Guildford',caption:'Stag Hill campus · Guildford, UK',author:'Tim Sheerman-Chase',source:'https://commons.wikimedia.org/wiki/File:Stag_Hill_Wide_View,_University_of_Surrey.jpg',license:'CC BY 2.0',licenseUrl:'https://creativecommons.org/licenses/by/2.0/'}},
  {degree:'Master of Computer Applications',school:'Madurai Kamaraj University',shortSchool:'Madurai Kamaraj',period:'2022 — 2024',level:'MCA',focus:'A bridge from mechanical engineering into computer applications.',
-  overview:'This degree broadened the way I think about connected systems and information protection. It sits between my practical engineering background and the security investigation skills I now develop through work and projects.',
+  overview:'This degree connects application behaviour with the networks that carry it. Networking, telecommunications and information protection help me reason about traffic paths, access decisions and the impact of a service fault.',
   skills:['Networking','Telecommunications','Cryptography','Steganography'],skillsLabel:'Academic focus',
   learningLabel:'What the technical knowledge means',learningGroups:[
    {title:'Networking',description:'Networking explains how devices address, connect to and exchange information with one another. That foundation helps me reason through connectivity and routing questions, rather than treating a service interruption as an unexplained fault.'},
@@ -156,14 +158,14 @@ export const education = [
    {title:'Cryptography',description:'Cryptographic methods protect information in different ways. For example, encryption makes message contents unreadable without the right key. My academic focus helped me ask what needs protecting, how access is controlled and what assumptions a solution relies on.'},
    {title:'Steganography',description:'Steganography hides information inside another medium so that the presence of the message is less obvious. It differs from encryption, which protects the contents. Studying both gave me distinct ways to think about information protection.'},
   ],
-  analystConnection:'Think about how information moves, question how it is protected and use a structured approach to make technical findings understandable.',
+  engineeringConnection:'Relate application behaviour to network paths, explain connectivity problems and consider how information is protected between systems.',
   projectIds:['assessor'],projectLabel:'Related portfolio work',projectNote:'DA Security Assessor is a later portfolio project. It uses configurable checks and structured reports to make security assessment steps easier to repeat and review.',
   photo:{src:'./assets/education/madurai-campus.webp',width:980,height:735,alt:'Main entrance to Madurai Kamaraj University in Madurai, Tamil Nadu',caption:'University entrance · Madurai, India',author:'LIC Habeeb',source:'https://commons.wikimedia.org/wiki/File:Madhurai_kamaraj_university_main_gate.JPG',license:'CC BY-SA 3.0',licenseUrl:'https://creativecommons.org/licenses/by-sa/3.0/'}},
  {degree:'BEng Mechanical Engineering',school:'Anna University',shortSchool:'Anna University',period:'2016 — 2020',level:'BEng',regulation:mechanicalFoundation.regulation,focus:'Mechanical engineering under Anna University Regulation 2013: design, production, thermal systems, materials and measurement.',
   overview:'My engineering foundation is about understanding components, how they interact and the constraints around a practical build. The Bell helicopter model put resourcefulness and mechanical assembly into practice using only reclaimed materials.',
   skills:['Scrap-metal fabrication','Motor integration','Mechanical assembly','Resourceful problem-solving'],skillsLabel:'Demonstrated in the Bell model',showAppliedSkills:true,
   learningLabel:'R2013 academic foundation',learningGroups:mechanicalFoundation.groups,curriculumSource:mechanicalFoundation.source,
-  analystConnection:'Break a complex system into parts, examine how those parts interact and make practical decisions within constraints. Those habits carry into network troubleshooting and evidence-based analysis.',
+  engineeringConnection:'Break a complex system into parts, examine how those parts interact and make practical decisions within constraints. Those habits carry into topology mapping, fault isolation and network change planning.',
   projectIds:[],projectLabel:'College symposium project',projectNote:'I built a Bell helicopter model entirely from scrap metals and recovered motors, using no new parts or components. The project won 1st place at our college symposium.',
   studentProject:{title:'Bell helicopter model',award:'1st place · college symposium',details:[{label:'The constraint',text:'Build the model without buying new parts or components.'},{label:'The approach',text:'Bring scrap metals and recovered motors together in a mechanical assembly.'},{label:'The outcome',text:'A completed model that won first place at the college symposium.'}],photo:{src:'./assets/education/bell-helicopter-scrap-model.jpg',width:1428,height:1071,alt:'Sarowar beside his Bell helicopter model built from scrap materials at college'}},
   photo:{src:'./assets/education/anna-campus.webp',width:1440,height:1080,alt:'The red clock-tower building at Anna University’s College of Engineering, Guindy campus',caption:'Guindy campus · Chennai, India',author:'Srinath1905',source:'https://commons.wikimedia.org/wiki/File:Ceg_red_building.jpg',license:'CC BY-SA 3.0',licenseUrl:'https://creativecommons.org/licenses/by-sa/3.0/'},campusNote:'University campus photograph'}

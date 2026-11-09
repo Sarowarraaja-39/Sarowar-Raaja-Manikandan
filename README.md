@@ -1,10 +1,10 @@
 # Sarowar Raaja Manikandan — Portfolio
 
-A React portfolio connecting network and security experience with cybersecurity analysis.
+A React portfolio for Sarowar Raaja Manikandan, Network Engineer and Network Security Specialist.
 
 **Website:** https://sarowarraaja-39.github.io/Sarowar-Raaja-Manikandan/
 
-The homepage includes a personal introduction and London skyline video, an About section explaining my progression from mechanical engineering into cybersecurity, a six-project evidence map with full case studies, six cinematic work experience slides with separate Presto L1/L2 responsibilities, applied skill workflows, university backgrounds with explained learning areas, a Regulation 2013 mechanical foundation, a personal mountain poster and contact links. The MSc appears in Education and its projects appear under Work. The introduction explains specific work tasks separately from academic lab practice. Project metrics and research/professional scope remain explicit.
+The homepage includes a personal introduction and London skyline video, an About section explaining my progression from mechanical engineering into networking and network security, a six-project evidence map with full case studies, six cinematic work experience slides with separate Presto L1/L2 responsibilities, applied skill workflows, university backgrounds with explained learning areas, a Regulation 2013 mechanical foundation, a personal mountain poster and contact links. The MSc appears in Education and its projects appear under Work. The introduction leads with Cisco routing, MPLS/VPN services, fault diagnosis, secure connectivity and controlled changes. CEH is shown as a certification; Security+ is labelled as completed self-study. Project metrics and research/professional scope remain explicit.
 
 ## Edit and run
 

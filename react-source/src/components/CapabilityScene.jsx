@@ -5,15 +5,15 @@ const workflows = {
   '01': { word:'TRACE', title:'From the endpoint to the wider network', icon:'journey',
     steps:[{title:'Map the path', detail:'LAN / WAN · segmentation'},{title:'Find the fault', detail:'Routing · VPN · QoS'},{title:'Verify the change', detail:'Connectivity · continuity'}],
     output:'A network path I can explain.' },
-  '02': { word:'EXAMINE', title:'From observed activity to a finding', icon:'work',
-    steps:[{title:'Inspect activity', detail:'Packets · detection tests'},{title:'Preserve evidence', detail:'Artefacts · integrity'},{title:'Explain the finding', detail:'Timeline · remediation'}],
-    output:'Evidence others can review.' },
+  '02': { word:'PROTECT', title:'Secure access while maintaining service', icon:'work',
+    steps:[{title:'Review the paths', detail:'Segmentation · access rules'},{title:'Validate weaknesses', detail:'Nessus · packet analysis'},{title:'Verify remediation', detail:'Connectivity · follow-up checks'}],
+    output:'Security checks tied to network behaviour.' },
   '03': { word:'REPEAT', title:'From configuration to a reviewable report', icon:'toolkit',
     steps:[{title:'Configure', detail:'PyYAML · safe loading'},{title:'Run the checks', detail:'Python · JSON-RPC'},{title:'Write the evidence', detail:'Jinja2 · Markdown'}],
     output:'Checks that are easier to repeat.' },
-  '04': { word:'PRIORITISE', title:'From technical exposure to a control', icon:'education',
-    steps:[{title:'Assess exposure', detail:'CTEM · risk context'},{title:'Map the controls', detail:'Frameworks · secure SDLC'},{title:'Plan the response', detail:'Remediation · evidence'}],
-    output:'A clearer next action.' },
+  '04': { word:'PLAN', title:'From a change request to a verified service', icon:'education',
+    steps:[{title:'Assess the impact', detail:'Dependencies · service risk'},{title:'Define the procedure', detail:'MOP · rollback steps'},{title:'Validate the outcome', detail:'AT · post-change checks'}],
+    output:'Reviewable steps for a controlled change.' },
 };
 
 export default function CapabilityScene({ number }) {

@@ -139,8 +139,11 @@ test('Every capability has its source tools, three applied steps and correct evi
       assert.equal(opened.at(-1),skill.evidence.project);
     } else assert.equal(panel.querySelector('.capability-copy a').getAttribute('href'),'#journey');
   }
-  assert(active().textContent.includes('Working knowledge and design exposure'));
+  assert(active().querySelector('.capability-scope').textContent.includes(skills[3].note));
   assert(container.querySelector('a[href="https://lnkd.in/p/edJ3cAif"]'));
+  const study=container.querySelector('.cert-card[data-kind="study"]');
+  assert(study.textContent.includes('Completed self-study'));
+  assert(!study.querySelector('a,[aria-label="Certified"],.cert-check'));
   await key(selected(),'Home'); assertActive(0);
   await key(selected(),'ArrowLeft'); assertActive(3);
 });
@@ -154,7 +157,7 @@ test('Shared carousel changes preserve three education frames, credits and proje
     assert.equal(active().querySelector('.campus-background').getAttribute('src'),item.photo.src);
     for(const skill of item.skills)assert(active().textContent.includes(skill));
     for(const group of item.learningGroups)assert(active().querySelector('.learning-groups').textContent.includes(group.description));
-    assert(active().textContent.includes(item.analystConnection));
+    assert(active().textContent.includes(item.engineeringConnection));
     for(const [j,id] of item.projectIds.entries()){
       assert(projects.find(project=>project.id===id));
       await click(active().querySelectorAll('.education-project')[j]); assert.equal(opened.at(-1),id);
