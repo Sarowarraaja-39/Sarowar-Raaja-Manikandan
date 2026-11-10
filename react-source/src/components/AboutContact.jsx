@@ -6,21 +6,21 @@ import { Arrow, SectionHeading, useClock } from './StudioUI.jsx';
 
 export function AboutSection({ onOpen }) {
   return <section className="section about-section" id="about"><div className="wrap">
-    <SectionHeading label="About me / the engineer behind the work" title={<>The engineering behind<br/><span>reliable networks.</span></>}>I connect practical troubleshooting with security checks: understand the traffic path, isolate the fault, plan the change and verify the result.</SectionHeading>
+    <SectionHeading label="About me / the engineer behind the work" title={<>Understand the problem.<br/><span>Follow it through.</span></>}>A network fault affects people before it reaches a ticket. I connect the technical investigation with the communication and checks needed to restore service.</SectionHeading>
     <div className="about-layout"><figure className="mountain-panel"><img src="./assets/personal/himalayas-reminder.webp" alt="Sarowar’s chosen mountain-road poster, with the words Focus, Discipline and Consistency" width="853" height="1706" loading="lazy"/><figcaption><span className="eyebrow">The Himalayas / personal inspiration</span><span>A reminder I keep close.</span></figcaption></figure>
       <div className="about-copy">
         <div className="about-id"><img src="./assets/sarowar-original.jpg" alt="Original photograph of Sarowar at the University of Surrey" width="1368" height="1824" loading="lazy"/><div><strong>{profile.name}</strong><span>{profile.role} · {profile.location}</span></div></div>
-        <h3>How my background<br/>shapes my work.</h3>
-        <p className="about-lead">I’m a network engineer with experience across surveillance, banking and national telecoms networks. I focus on dependable connectivity and infrastructure changes that can be checked, explained and recovered if needed.</p>
-        <p>My mechanical engineering degree at Anna University followed its Regulation 2013 curriculum. My Bell helicopter model, built entirely from scrap metals and recovered motors, won first place at our college symposium. It taught me to work within constraints and understand how components fit together.</p>
-        <p>At first line, I gathered customer symptoms, ran checks and escalated useful diagnostics to L2. In engineering work, I investigated routing and VPN faults, coordinated with field teams and Cisco TAC, and checked that services recovered after a change.</p>
-        <p>I produced Acceptance Testing (AT) documentation for hundreds of sites and Method of Procedure (MOP) documents covering more than 365 routers. The aim was practical: record what was checked, explain the risks and leave clear steps for another engineer to review.</p>
-        <p>My MSc Cybersecurity at Surrey adds secure communication and network defence knowledge to that operational experience.</p>
-        <p>I’ve also volunteered with The Cyber Helpline to make online-safety guidance easier to use. Outside work and study, I play tennis and take long walks to reset.</p>
-        <div className="about-principles"><span>Understand the path.</span><span>Control the change.</span><span>Verify the result.</span></div><a className="text-link" href={profile.linkedin} target="_blank" rel="noreferrer">The full story on LinkedIn<Arrow/></a><div className="languages"><span className="eyebrow">Good communication travels</span><ul>{profile.languages.map(language => <li key={language}>{language}</li>)}</ul></div>
+        <p className="about-lead">My background spans local surveillance networks, banking connectivity and national telecom infrastructure. The scale changes; my approach stays practical.</p>
+        <div className="about-story">
+          <section><h3>From the first ticket to the final check.</h3><p>At L1, I gathered customer symptoms, ran initial checks and passed useful diagnostics to L2. In engineering work, I investigated routing and VPN faults, coordinated with field teams and Cisco TAC, and verified service recovery. Keeping the customer informed was part of the work throughout.</p></section>
+          <section><h3>A change should be understandable to the next engineer.</h3><p>I produced Acceptance Testing records for hundreds of sites and migration procedures covering more than 365 routers. I set out readiness checks, the change sequence, rollback steps and post-change verification so another engineer could review the work and understand the risks.</p></section>
+          <section><h3>Engineering habits, strengthened by security knowledge.</h3><p>Mechanical engineering at Anna University taught me to understand how systems fit together. My first-place Bell helicopter model was built entirely from scrap metals and recovered motors. Computer applications and my MSc Cybersecurity at Surrey added knowledge of connected systems, secure communications and network defence.</p></section>
+        </div>
+        <p className="about-personal">Away from the network, I play tennis, take long walks and have volunteered with The Cyber Helpline to make online-safety guidance easier to use.</p>
+        <a className="text-link" href={profile.linkedin} target="_blank" rel="noreferrer">Read my background on LinkedIn<Arrow/></a><div className="languages"><span className="eyebrow">Languages</span><ul>{profile.languages.map(language => <li key={language}>{language}</li>)}</ul></div>
       </div>
     </div>
-    <div className="engineering-heading"><p className="eyebrow">From diagnosis to dependable service</p><h3>What I bring to network & security teams.</h3></div>
+    <div className="engineering-heading"><p className="eyebrow">How I contribute</p><h3>What your team can count on.</h3></div>
     <div className="engineering-strengths">{engineeringStrengths.map(strength => <article key={strength.number}><ProjectGlyph type={strength.visual}/><h4>{strength.title}</h4><p>{strength.description}</p>{strength.href ? <a className="text-link" href={strength.href}>{strength.linkLabel}<Arrow/></a> : <button className="text-link" onClick={() => onOpen(projects.find(p => p.id === strength.project))}>{strength.linkLabel}<Arrow/></button>}</article>)}</div>
   </div></section>;
 }

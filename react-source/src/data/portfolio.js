@@ -2,8 +2,8 @@ export const profile = {
   name: 'Sarowar Raaja Manikandan', shortName: 'Sarowar Raaja', role: 'Network Engineer & Network Security Specialist',
   location: 'Guildford, UK', timezone: 'Europe/London', email: 'sarowarraajaUK@gmail.com',
   linkedin: 'https://www.linkedin.com/in/sarowar-raaja-m/', github: 'https://github.com/Sarowarraaja-39',
-  intro: 'I keep networks connected, resolve faults and help protect the systems that depend on them.',
-  introDetail: 'My experience covers banking and national telecoms networks: Cisco routing, MPLS and VPN services, fault diagnosis and controlled migrations. I work through packet loss and routing issues, coordinate with customers and engineering teams, and verify connectivity after a change.',
+  intro: 'I troubleshoot network faults, deliver controlled migrations and verify that services recover.',
+  introDetail: 'From banking connectivity to national telecom backbones, I bring practical experience in Cisco routing, MPLS/VPN services and network security—with clear procedures, rollback plans and evidence of what was checked.',
   focusDetail: 'I combine network segmentation and vulnerability checks with clear migration procedures, rollback plans and post-change verification. That means understanding what will change, how to recover if something fails and how to confirm that services work as expected.',
   summary: 'Network Engineer and Network Security Specialist with experience in Cisco routing, MPLS/VPN services, network troubleshooting and controlled infrastructure changes across banking and telecoms.',
   credentials: [

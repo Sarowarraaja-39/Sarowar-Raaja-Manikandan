@@ -3,7 +3,7 @@ import { profile } from '../data/portfolio.js';
 import { Monogram } from './Brand.jsx';
 import { NavIcon, useClock } from './StudioUI.jsx';
 
-const links = [['about', 'About'], ['work', 'Work'], ['journey', 'Journey'], ['toolkit', 'Skills'], ['education', 'Education'], ['contact', 'Contact']];
+const links = [['about', 'About'], ['work', 'Work'], ['journey', 'Experience'], ['toolkit', 'Skills'], ['education', 'Education'], ['contact', 'Contact']];
 export default function StudioNav({ motion, setMotion }) {
   const [active, setActive] = useState('home');
   const [menu, setMenu] = useState(false);

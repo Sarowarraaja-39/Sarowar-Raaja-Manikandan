@@ -32,8 +32,8 @@ export default function App() {
     <div className="portfolio-body">
       <main id="main">
         <StudioHero motion={motion}/>
-        <AboutSection onOpen={setProject}/>
         <CredibilityStrip/>
+        <AboutSection onOpen={setProject}/>
         <ProjectShowcase onOpen={setProject}/>
         <ExperienceJourney motion={motion} blocked={!!project}/>
         <SkillsSection motion={motion} blocked={!!project} onOpen={setProject}/>

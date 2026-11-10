@@ -7,6 +7,7 @@ import { Arrow, NavIcon, SectionHeading } from './StudioUI.jsx';
 export function SkillsSection({ motion, blocked, onOpen }) {
   const open = id => onOpen(projects.find(project => project.id === id));
   const titles = { '01': ['Keep networks','connected.'], '02': ['Protect','the network.'], '03': ['Make checks','repeatable.'], '04': ['Control','the change.'] };
+  const previews = { '01':'Cisco · BGP · MPLS', '02':'FMC · Wireshark · Nessus', '03':'Python · Bash · Git', '04':'AT · MOP · rollback' };
   const toolRoles = {
     '01':['Network platforms','Core routing','Interior routing','Connected services','Traffic control'],
     '02':['Security controls','Traffic analysis','Vulnerability checks','Protected communications','Academic detection labs'],
@@ -15,7 +16,7 @@ export function SkillsSection({ motion, blocked, onOpen }) {
   };
   return <section className="section skills-section" id="toolkit"><div className="wrap">
     <SectionHeading label="Capabilities / network engineering & security" title={<>The tools I use,<br/><span>and what I use them for.</span></>}>Routing and switching keep services connected. Security controls protect access. Repeatable checks and clear change procedures help me verify that both work as intended.</SectionHeading>
-    <SlidingFrames id="skills" label="Skills and applied workflows" items={skills} getLabel={s => s.title} motion={motion} blocked={blocked} interval={11000} className="capability-carousel" renderTab={s => <><span className="capability-tab-icon" aria-hidden="true">{s.number === '01' ? '↔' : s.number === '02' ? '⌕' : s.number === '03' ? '>_' : '◎'}</span><span><small>{s.number} / CAPABILITY</small><strong>{s.title}</strong></span><span className="capability-tab-arrow" aria-hidden="true">↗</span></>}>
+    <SlidingFrames id="skills" label="Skills and applied workflows" items={skills} getLabel={s => s.title} motion={motion} blocked={blocked} interval={11000} className="capability-carousel" renderTab={s => <><span className="capability-tab-icon" aria-hidden="true">{s.number === '01' ? '↔' : s.number === '02' ? '⌕' : s.number === '03' ? '>_' : '◎'}</span><span><small>{s.number} / CAPABILITY</small><strong>{s.title}</strong><span className="capability-tab-summary">{previews[s.number]}</span></span><span className="capability-tab-arrow" aria-hidden="true">↗</span></>}>
       {(s, i, active) => <article className="capability-slide" data-active={active}><div className="capability-content"><div className="capability-copy"><span className="eyebrow">{s.note}</span><h3>{titles[s.number][0]}<br/><span>{titles[s.number][1]}</span></h3><p>{s.description}</p>{s.evidence.href ? <a className="button primary-button" href={s.evidence.href}>{s.evidence.label}<Arrow/></a> : <button className="button primary-button" onClick={() => open(s.evidence.project)}>{s.evidence.label}<Arrow/></button>}<span className="capability-scope">{s.note}</span></div><CapabilityScene number={s.number}/></div><div className="capability-tools"><h4><span className="eyebrow">The tools behind it</span><span>{s.title}</span></h4><ul aria-label={s.title + ' tools and methods'}>{s.items.map((item, itemIndex) => <li key={item}><small>{toolRoles[s.number][itemIndex]}</small><strong>{item}</strong></li>)}</ul></div></article>}
     </SlidingFrames>
     <MechanicalFoundation/>

@@ -6,6 +6,15 @@ A React portfolio for Sarowar Raaja Manikandan, Network Engineer and Network Sec
 
 The homepage includes a personal introduction and London skyline video, an About section explaining my progression from mechanical engineering into networking and network security, a six-project evidence map with full case studies, six cinematic work experience slides with separate Presto L1/L2 responsibilities, applied skill workflows, university backgrounds with explained learning areas, a Regulation 2013 mechanical foundation, a personal mountain poster and contact links. The MSc appears in Education and its projects appear under Work. The introduction leads with Cisco routing, MPLS/VPN services, fault diagnosis, secure connectivity and controlled changes. CEH is shown as a certification; Security+ is labelled as completed self-study. Project metrics and research/professional scope remain explicit.
 
+## Recruiter reading path
+
+- A concise opening explains my role, operational scope and contribution, with direct links to projects and experience.
+- The experience-at-a-glance strip separates 341 routers personally migrated from 365+ routers covered by migration procedures.
+- About remains the first full content section, with three labelled explanations and a human perspective.
+- Contribution rows connect practical skills with experience and supporting project evidence.
+- Every experience slide labels its full explanation; skill tabs show their key technologies on desktop.
+- Canonical and Open Graph metadata describe the public portfolio when shared.
+
 ## Edit and run
 
 ```bash
